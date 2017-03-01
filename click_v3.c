@@ -2,11 +2,11 @@
 David & Mikaela
 Sync - Test Human swarm
 
-Use Structure Format
-25 February 2017
+Use point and click, arrows, and keyboard
+28 February 2017
 */
 
-// gcc Structure_v1.c -o temp -lglut -lm -lGLU -lGL
+// gcc click_v3.c -o temp -lglut -lm -lGLU -lGL && ./temp
 // ./temp
 // To stop hit "control c" in the window you launched it from.
 #include <GL/glut.h>
@@ -33,14 +33,14 @@ Use Structure Format
 #define DAMP 	200
 #define K1 	10
 #define N 	20  // number of bodies
-#define SPEED 	1.5
 
 // Global variable
 double 	CENTER[3],	// Center or point of attraction;
 	//r[N][N],	// distance between particles; 
 	r;
 
-double timerunning = 0.0;
+double TIMERUNNING = 0.0;
+double SPEED = 1.0;
 	
 struct Fish {
 	double p[3];
@@ -63,7 +63,7 @@ struct Fish {
 
 void create_fish()
 {
-	timerunning = 0.0;
+	TIMERUNNING = 0.0;
 	int i;
 	for(i=0; i<N; i++)
 	{	
@@ -119,7 +119,7 @@ void create_fish()
 	//printf("\n\n");
 	
 	// Create Target
-	temp_f[N].p[0] = 1.0;
+	temp_f[N].p[0] = 0.0;
 	temp_f[N].p[1] = 0.0;
 	temp_f[N].p[2] = 0.0;
 	
@@ -131,7 +131,7 @@ void create_fish()
 	temp_f[N].vn[1] = 0.0; //ignore
 	temp_f[N].vn[2] = 0.0; //ignore
 	 temp_f[N].v[0] = 0.0; 
-	 temp_f[N].v[1] = 1.0;
+	 temp_f[N].v[1] = 0.0;
 	 temp_f[N].v[2] = 0.0;
 	
 	// Target forces:
@@ -192,12 +192,12 @@ int n_body()
 	//temp_f[N].p[1] += temp_f[N].v[1]*dt;
 	//temp_f[N].p[2] += temp_f[N].v[2]*dt;
 
-	temp_f[N].p[0] = sin(10.0*timerunning);
-	temp_f[N].p[1] = cos(10.0*timerunning);
-	temp_f[N].p[2] = 0.0;
+	//temp_f[N].p[0] = sin(10.0*TIMERUNNING);
+	//temp_f[N].p[1] = cos(10.0*TIMERUNNING);
+	//temp_f[N].p[2] = 0.0;
 
-	printf("The current position of particle %i is (%.4f, %.4f, %.4f)\n", 
-		N, temp_f[N].p[0], temp_f[N].p[1], temp_f[N].p[2]);
+	//printf("The current position of particle %i is (%.4f, %.4f, %.4f)\n", 
+	//	N, temp_f[N].p[0], temp_f[N].p[1], temp_f[N].p[2]);
 	
 	
 	
@@ -313,21 +313,14 @@ int n_body()
 	}
 	
 
-	timerunning += dt;
+	TIMERUNNING += dt;
 	//printf("%.4f\n", time);
 	tdraw++;
 	tprint++;
 
 
 }
-	
-void update(int value)
-{
-	n_body();
-	glutPostRedisplay();
-	glutTimerFunc(1, update, 0);
-	
-}
+
 
 /*void control()
 {	
@@ -336,6 +329,94 @@ void update(int value)
 
 
 }*/
+
+
+void arrowFunc(int key, int x, int y) 
+{
+	switch (key) 
+	{    
+		//case 100 :
+		//	printf("Left arrow");
+		//	; break;
+		//case 102 :
+		//	printf("Right arrow");  	
+		//	; break;
+		case 101 : // Up arrow
+			SPEED *= 1.1;
+			printf("Speed: %.4f\n", SPEED);		
+			; break;
+		case 103 : // Down arrow
+			SPEED /= 1.1;
+			printf("Speed: %.4f\n", SPEED);		
+			; break;		
+	}
+}
+
+
+
+void keyboardFunc( unsigned char key, int x, int y )
+{
+	switch(key) 
+	{
+		case 'q': exit(1);
+		default:
+			break;
+	}
+}
+
+
+void mouseFunc( int button, int state, int x, int y )
+{
+	double coord[3];
+	if( button == GLUT_LEFT_BUTTON ) 
+	{
+		if( state == GLUT_DOWN ) 
+		{
+		// when left mouse button goes down.
+			coord[0] = (x*4.0/XWindowSize)-2.0;
+			coord[2] = 0.0;
+			coord[1] = -(y*4.0/YWindowSize)+2.0;
+			printf("The sphere is at (%.4f, %.4f, %.4f)\n",
+				coord[0], coord[1], coord[2]);
+			temp_f[N].p[0] = coord[0];
+			temp_f[N].p[1] = coord[1];
+			temp_f[N].p[2] = coord[2];			
+		}
+	//	else if( state == GLUT_UP ) 
+	//	{
+	//		printf("Left button up!\n");
+	//	}
+	
+	}
+
+	//else if ( button == GLUT_RIGHT_BUTTON )
+	//{
+	//	/* when right mouse button down */
+	//	if( state == GLUT_DOWN ) 
+	//	{
+	//		//printf("Right button down!\n");
+	//	}
+	//	else if( state == GLUT_UP ) 
+	//	{
+	//		//printf("Right button up!\n");
+	//	}
+	//}
+}
+
+	
+void update(int value)
+{
+	n_body();
+
+    	glutSpecialFunc( arrowFunc );
+	glutKeyboardFunc( keyboardFunc );
+	glutMouseFunc( mouseFunc );
+	glutPostRedisplay();
+
+	glutTimerFunc(1, update, 0);
+	
+}
+
 
 void Display(void)
 {
