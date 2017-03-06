@@ -2,11 +2,11 @@
 David & Mikaela
 Sync - Test Human swarm
 
-Use point and click
+Use point and click, arrows, and keyboard
 1 March 2017
 */
 
-// gcc click_v2.c -o temp -lglut -lm -lGLU -lGL & ./temp
+// gcc click_v3.c -o temp -lglut -lm -lGLU -lGL && ./temp
 // ./temp
 // To stop hit "control c" in the window you launched it from.
 #include <GL/glut.h>
