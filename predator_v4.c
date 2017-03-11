@@ -6,7 +6,7 @@ Fix variable names (esp t emp_f) and introduce predator
 1 March 2017
 */
 
-// gcc predator_v2.c -o temp -lglut -lm -lGLU -lGL && ./temp
+// gcc predator_v4.c -o temp -lglut -lm -lGLU -lGL && ./temp
 
 #include <GL/glut.h>
 #include <math.h>
@@ -14,6 +14,7 @@ Fix variable names (esp t emp_f) and introduce predator
 #include <stdlib.h>
 #include <time.h>
 
+#define PI		3.1415926535
 #define DRAW 		10	// Not sure?
 #define XWindowSize 	700 	//700 initially 
 #define YWindowSize 	700 	//700 initially
@@ -29,27 +30,32 @@ Fix variable names (esp t emp_f) and introduce predator
 //NAMING TEMP FILE #defines			
 #define DAMP 	300
 #define K1 	10
-#define N 	20  // number of bodies
+#define NFISH 	20  // number of bodies
+#define NFOOD	3
+#define NPRED	3
+#define N	NFISH + NFOOD + NPRED
 
 // Global variable
 double 	CENTER[3],	// Center or point of attraction;
 	//r[N][N],	// distance between particles; 
 	r;
 
-double TIMERUNNING = 0.0;
-double SPEED = 1.0;
-	
+//int	N = NFISH + NFOOD + NPRED;
+double 	TIMERUNNING = 0.0;
+double 	SPEED = 1.0;
+int 	FOODPOINTER = NFISH;
+
 struct body {
-	double p[3];
-	double vc[3];
-	double vn[3];
-	double v[3];
-	double f[3];
-	double radius;
-	double color[3];
-	double sensitivity;
-	int    type;
-} particle[N+1]; 
+	double 	p[3];
+	double 	vc[3];
+	double 	vn[3];
+	double 	v[3];
+	double 	f[3];
+	double 	radius;
+	double 	color[3];
+	double 	sensitivity;
+	int    	type;
+} particle[N];
 
 
 
@@ -58,7 +64,9 @@ void initialize_bodies()
 {
 	TIMERUNNING = 0.0;
 	int i;
-	for(i=0; i<N; i++)
+
+	// Initialize Fish
+	for(i=0; i<NFISH; i++)
 	{	
 		/* Option to start in a CIRCLE
 		particle[i].p[0] = sin(i*2*PI/N)*4.5;
@@ -93,11 +101,7 @@ void initialize_bodies()
 		particle[i].color[0] = 1.0; // Default is yellow
 		particle[i].color[1] = 1.0;
 		particle[i].color[2] = 0.5;
-		
-		// Brown color:  (0.65,0.16,0.16)
-		// Pink color:   (1.0,0.5,1.0)
-		// Yellow color: (1.0,1.0,0.5)
-		
+
 		// Sensitivity
 		particle[i].sensitivity = 1.0;
 		
@@ -109,68 +113,89 @@ void initialize_bodies()
 	}
 	//printf("\n\n");
 	
-	// Create Target
-	particle[N].p[0] = 0.0;
-	particle[N].p[1] = 0.0;
-	particle[N].p[2] = 0.0;
+
+	// Initialize Food
+	for(i=NFISH; i<NFISH+NFOOD; i++)
+	{
+		/* Option to start in a CIRCLE
+		particle[i].p[0] = sin(i*2*PI/N)*4.5;
+		particle[i].p[1] = cos(i*2*PI/N)*4.5;
+		particle[i].p[2] = 0.0;
+		//*/
+
+		//* Option to start in RANDOM positions
+		particle[i].p[0] = (((double)rand()/(double)RAND_MAX)-0.5)*1.0;
+		particle[i].p[1] = (((double)rand()/(double)RAND_MAX)-0.5)*1.0;
+		particle[i].p[2] = 0.0; //(((double)rand()/(double)RAND_MAX)-0.5)*3.0;
+		//*/
 	
-	// Target Starting Velocities
-	particle[N].vc[0] = 0.0; //ignore
-	particle[N].vc[1] = 0.0; //ignore
-	particle[N].vc[2] = 0.0; //ignore
-	particle[N].vn[0] = 0.0; //ignore
-	particle[N].vn[1] = 0.0; //ignore
-	particle[N].vn[2] = 0.0; //ignore
-	 particle[N].v[0] = 0.0; 
-	 particle[N].v[1] = 0.0;
-	 particle[N].v[2] = 0.0;
+		// Target Starting Velocities
+		particle[i].vc[0] = 0.0; //ignore
+		particle[i].vc[1] = 0.0; //ignore
+		particle[i].vc[2] = 0.0; //ignore
+		particle[i].vn[0] = 0.0; //ignore
+		particle[i].vn[1] = 0.0; //ignore
+		particle[i].vn[2] = 0.0; //ignore
+		 particle[i].v[0] = 0.0; 
+		 particle[i].v[1] = 0.0;
+		 particle[i].v[2] = 0.0;
 	
-	// Target forces:
-	particle[N].f[0] = 0.0;
-	particle[N].f[1] = 0.0;
-	particle[N].f[2] = 0.0;
+		// Target forces:
+		particle[i].f[0] = 0.0;
+		particle[i].f[1] = 0.0;
+		particle[i].f[2] = 0.0;
 	
-	// Target Radius and Color
-	particle[N].radius = 0.05; // default was 0.05
-	particle[N].color[0] = 0.0;
-	particle[N].color[1] = 0.0;
-	particle[N].color[2] = 1.0;
+		// Target Radius and Color
+		particle[i].radius = 0.05; // default was 0.05
+		particle[i].color[0] = 0.0;
+		particle[i].color[1] = 0.0;
+		particle[i].color[2] = 1.0;
 	
-	printf("The starting position of particle %i (target) is (%.4f, %.4f, %.4f)\n", 
-		N, particle[N].p[0], particle[N].p[1], particle[N].p[2]);
+		printf("The starting position of particle %i (target) is (%.4f, %.4f, %.4f)\n", 
+			i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
+	}
 
 
+	// Initialize Predators
+	for(i=NFISH+NFOOD; i<NFISH+NFOOD+NPRED; i++)
+	{
+		//* Option to start in a CIRCLE
+		particle[i].p[0] = sin(i*2*PI/N)*1.5;
+		particle[i].p[1] = cos(i*2*PI/N)*1.5;
+		particle[i].p[2] = 0.0;
+		//*/
 
-	// Create Predator
-	particle[N+1].p[0] = 1.0;
-	particle[N+1].p[1] = 0.0;
-	particle[N+1].p[2] = 0.0;
+		/* Option to start in RANDOM positions
+		particle[i].p[0] = (((double)rand()/(double)RAND_MAX)-0.5)*1.0;
+		particle[i].p[1] = (((double)rand()/(double)RAND_MAX)-0.5)*1.0;
+		particle[i].p[2] = 0.0; //(((double)rand()/(double)RAND_MAX)-0.5)*3.0;
+		//*/
 	
-	// Predator Starting Velocities
-	particle[N+1].vc[0] = 0.0; //ignore
-	particle[N+1].vc[1] = 0.0; //ignore
-	particle[N+1].vc[2] = 0.0; //ignore
-	particle[N+1].vn[0] = 0.0; //ignore
-	particle[N+1].vn[1] = 0.0; //ignore
-	particle[N+1].vn[2] = 0.0; //ignore
-	 particle[N+1].v[0] = 0.0; 
-	 particle[N+1].v[1] = 0.0;
-	 particle[N+1].v[2] = 0.0;
+		// Predator Starting Velocities
+		particle[i].vc[0] = 0.0; //ignore
+		particle[i].vc[1] = 0.0; //ignore
+		particle[i].vc[2] = 0.0; //ignore
+		particle[i].vn[0] = 0.0; //ignore
+		particle[i].vn[1] = 0.0; //ignore
+		particle[i].vn[2] = 0.0; //ignore
+		 particle[i].v[0] = 0.0; 
+		 particle[i].v[1] = 0.0;
+		 particle[i].v[2] = 0.0;
 	
-	// Predator forces:
-	particle[N+1].f[0] = 0.0;
-	particle[N+1].f[1] = 0.0;
-	particle[N+1].f[2] = 0.0;
+		// Predator forces:
+		particle[i].f[0] = 0.0;
+		particle[i].f[1] = 0.0;
+		particle[i].f[2] = 0.0;
 	
-	// Predator Radius and Color
-	particle[N+1].radius = 0.05; // default was 0.05
-	particle[N+1].color[0] = 1.0;
-	particle[N+1].color[1] = 0.5;
-	particle[N+1].color[2] = 1.0;
+		// Predator Radius and Color
+		particle[i].radius = 0.05; // default was 0.05
+		particle[i].color[0] = 1.0;
+		particle[i].color[1] = 0.5;
+		particle[i].color[2] = 1.0;
 	
-	printf("The starting position of particle %i (predator) is (%.4f, %.4f, %.4f)\n", 
-		N+1, particle[N+1].p[0], particle[N+1].p[1], particle[N+1].p[2]);
-
+		printf("The starting position of particle %i (predator) is (%.4f, %.4f, %.4f)\n", 
+			i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
+	}
 }
 
 void draw_picture()
@@ -180,7 +205,7 @@ void draw_picture()
 	
 	int i;
 	
-	for(i=0;i<(N+2);i++){
+	for(i=0;i<N;i++){
 		glColor3d(particle[i].color[0], particle[i].color[1], particle[i].color[2]); 	//Object color
 		glPushMatrix();
 		glTranslatef(particle[i].p[0], particle[i].p[1], particle[i].p[2]);
@@ -200,24 +225,17 @@ int n_body()
 	int danger_d;
 	dt = DT;
 	
+
+	// Move Predators in a circle
+	for(i=NFISH+NFOOD; i<NFISH+NFOOD+NPRED; i++)
+	{
+		particle[i].p[0] = sin((i)*TIMERUNNING);
+		particle[i].p[1] = cos((i)*TIMERUNNING);
+		particle[i].p[2] = 0.0;
+	}
 	
 
-	// MOVE PREDATOR
-	//particle[N].f[0] = 0.0;
-	//particle[N].f[1] = 0.0;
-	//particle[N].f[2] = 0.0;
-	
-	//particle[N].v[0] = 0.0;
-	//particle[N].v[1] = 10.0;
-	//particle[N].v[2] = 0.0;	
 
-	//particle[N].p[0] += particle[N].v[0]*dt;
-	//particle[N].p[1] += particle[N].v[1]*dt;
-	//particle[N].p[2] += particle[N].v[2]*dt;
-
-	particle[N+1].p[0] = sin(10.0*TIMERUNNING);
-	particle[N+1].p[1] = cos(10.0*TIMERUNNING);
-	particle[N+1].p[2] = 0.0;
 
 	//printf("The current position of particle %i is (%.4f, %.4f, %.4f)\n", 
 	//	N, particle[N].p[0], particle[N].p[1], particle[N].p[2]);
@@ -238,7 +256,7 @@ int n_body()
 	*/
 
 				
-	for(i=0; i<N; i++)
+	for(i=0; i<NFISH; i++)
 	{
 		// reset the forces to 0.0 
 		particle[i].f[0] = 0.0;
@@ -246,9 +264,9 @@ int n_body()
 		particle[i].f[2] = 0.0;
 	}
 	
-	for(i=0; i<N; i++)
+	for(i=0; i<NFISH; i++)
 	{
-		for(j=i+1; j<N; j++)
+		for(j=i+1; j<NFISH; j++)
 		{
 			d[0] = particle[j].p[0] - particle[i].p[0];
 			d[1] = particle[j].p[1] - particle[i].p[1];
@@ -279,16 +297,16 @@ int n_body()
 		}
 	}
 	
-	// Update velocities and move particles.
-	for(i=0; i<N; i++)
+	// Update velocities and move fish.
+	for(i=0; i<NFISH; i++)
 	{			
 		for(j=0; j<3; j++)
 		{
 			//vc[i][j] = (CENTER[j] - p[i][j]);
 			//vn[i][j] += (f[i][j] - DAMP*vn[i][j])*dt;
-			danger_d = sqrt((particle[N+1].p[j] - particle[i].p[j])*(particle[N+1].p[j]-particle[i].p[j]));
-			particle[i].vc[j] = (particle[N].p[j] - particle[i].p[j]) 
-					  - (particle[N+1].p[j]-particle[i].p[j])/(10.0);
+			//danger_d = sqrt((particle[N+1].p[j] - particle[i].p[j])*(particle[N+1].p[j]-particle[i].p[j]));
+			particle[i].vc[j] = (particle[NFISH].p[j] - particle[i].p[j]);
+			//		  - (particle[N+1].p[j]-particle[i].p[j])/(10.0);
 			particle[i].vn[j] += (particle[i].f[j] - DAMP*particle[i].vn[j]*dt);
 		}
 		
@@ -379,14 +397,22 @@ void mouseFunc( int button, int state, int x, int y )
 	{
 		if( state == GLUT_DOWN ) // when left mouse button goes down.
 		{
+			printf("FOODPOINTER is %i \n", FOODPOINTER);
 			coord[0] = (x*4.0/XWindowSize)-2.0;
-			coord[2] = 0.0;
 			coord[1] = -(y*4.0/YWindowSize)+2.0;
-			printf("The sphere is at (%.4f, %.4f, %.4f)\n",
+			coord[2] = 0.0;
+			printf("The food is at (%.4f, %.4f, %.4f)\n",
 				coord[0], coord[1], coord[2]);
-			particle[N].p[0] = coord[0];
-			particle[N].p[1] = coord[1];
-			particle[N].p[2] = coord[2];			
+			particle[FOODPOINTER].p[0] = coord[0];
+			particle[FOODPOINTER].p[1] = coord[1];
+			particle[FOODPOINTER].p[2] = coord[2];
+			
+			// Change pointer to next food particle
+			FOODPOINTER++;
+			if(FOODPOINTER == NFISH+NFOOD)
+			{
+				FOODPOINTER = NFISH;
+			}			
 		}
 	}
 }
