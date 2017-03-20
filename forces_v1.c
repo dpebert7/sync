@@ -2,11 +2,11 @@
 David & Mikaela
 Sync - Test Human swarm
 
-Fix variable names (esp t emp_f) and introduce predator
-1 March 2017
+Fix forces between bodies, and make forces move predators in circle.
+11 March 2017
 */
 
-// gcc predator_v4.c -o temp -lglut -lm -lGLU -lGL && ./temp
+// gcc forces_v1.c -o temp -lglut -lm -lGLU -lGL && ./temp
 
 #include <GL/glut.h>
 #include <math.h>
@@ -31,8 +31,8 @@ Fix variable names (esp t emp_f) and introduce predator
 #define DAMP 	300
 #define K1 	10
 #define NFISH 	20  // number of bodies
-#define NFOOD	3
-#define NPRED	3
+#define NFOOD	1
+#define NPRED	1
 #define N	NFISH + NFOOD + NPRED
 
 // Global variable
@@ -44,6 +44,7 @@ double 	CENTER[3],	// Center or point of attraction;
 double 	TIMERUNNING = 0.0;
 double 	SPEED = 1.0;
 int 	FOODPOINTER = NFISH;
+int	PAUSE = 0;
 
 struct body {
 	double 	p[3];
@@ -111,7 +112,6 @@ void initialize_bodies()
 		//printf("The starting position of particle %i is (%.4f, %.4f, %.4f)\n", 
 		//	i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
 	}
-	//printf("\n\n");
 	
 
 	// Initialize Food
@@ -157,44 +157,47 @@ void initialize_bodies()
 
 
 	// Initialize Predators
-	for(i=NFISH+NFOOD; i<NFISH+NFOOD+NPRED; i++)
+	if(NPRED>=1)
 	{
-		//* Option to start in a CIRCLE
-		particle[i].p[0] = sin(i*2*PI/N)*1.5;
-		particle[i].p[1] = cos(i*2*PI/N)*1.5;
-		particle[i].p[2] = 0.0;
-		//*/
-
-		/* Option to start in RANDOM positions
-		particle[i].p[0] = (((double)rand()/(double)RAND_MAX)-0.5)*1.0;
-		particle[i].p[1] = (((double)rand()/(double)RAND_MAX)-0.5)*1.0;
-		particle[i].p[2] = 0.0; //(((double)rand()/(double)RAND_MAX)-0.5)*3.0;
-		//*/
+		for(i=NFISH+NFOOD; i<NFISH+NFOOD+NPRED; i++)
+		{
+			//* Option to start in a CIRCLE
+			particle[i].p[0] = sin(i*2*PI/NPRED);
+			particle[i].p[1] = cos(i*2*PI/NPRED);
+			particle[i].p[2] = 0.0;
+			//*/
 	
-		// Predator Starting Velocities
-		particle[i].vc[0] = 0.0; //ignore
-		particle[i].vc[1] = 0.0; //ignore
-		particle[i].vc[2] = 0.0; //ignore
-		particle[i].vn[0] = 0.0; //ignore
-		particle[i].vn[1] = 0.0; //ignore
-		particle[i].vn[2] = 0.0; //ignore
-		 particle[i].v[0] = 0.0; 
-		 particle[i].v[1] = 0.0;
-		 particle[i].v[2] = 0.0;
+			/* Option to start in RANDOM positions
+			particle[i].p[0] = (((double)rand()/(double)RAND_MAX)-0.5)*1.0;
+			particle[i].p[1] = (((double)rand()/(double)RAND_MAX)-0.5)*1.0;
+			particle[i].p[2] = 0.0; //(((double)rand()/(double)RAND_MAX)-0.5)*3.0;
+			//*/
+		
+			// Predator Starting Velocities
+			particle[i].vc[0] = 0.0; //ignore
+			particle[i].vc[1] = 0.0; //ignore
+			particle[i].vc[2] = 0.0; //ignore
+			particle[i].vn[0] = 0.0; //ignore
+			particle[i].vn[1] = 0.0; //ignore
+			particle[i].vn[2] = 0.0; //ignore
+			 particle[i].v[0] = 3.0*cos(particle[i].p[0]); 
+			 particle[i].v[1] = 3.0*cos(particle[i].p[1]);
+			 particle[i].v[2] = 0.0;
+		
+			// Predator forces:
+			particle[i].f[0] = 0.0;
+			particle[i].f[1] = 0.0;
+			particle[i].f[2] = 0.0;
+		
+			// Predator Radius and Color
+			particle[i].radius = 0.05; // default was 0.05
+			particle[i].color[0] = 1.0;
+			particle[i].color[1] = 0.5;
+			particle[i].color[2] = 1.0;
 	
-		// Predator forces:
-		particle[i].f[0] = 0.0;
-		particle[i].f[1] = 0.0;
-		particle[i].f[2] = 0.0;
-	
-		// Predator Radius and Color
-		particle[i].radius = 0.05; // default was 0.05
-		particle[i].color[0] = 1.0;
-		particle[i].color[1] = 0.5;
-		particle[i].color[2] = 1.0;
-	
-		printf("The starting position of particle %i (predator) is (%.4f, %.4f, %.4f)\n", 
-			i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
+			printf("The starting position of particle %i (predator) is (%.4f, %.4f, %.4f)\n", 
+				i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
+		}	
 	}
 }
 
@@ -229,33 +232,21 @@ int n_body()
 	// Move Predators in a circle
 	for(i=NFISH+NFOOD; i<NFISH+NFOOD+NPRED; i++)
 	{
-		particle[i].p[0] = sin((i)*TIMERUNNING);
-		particle[i].p[1] = cos((i)*TIMERUNNING);
-		particle[i].p[2] = 0.0;
+		particle[i].f[0] = 0.0 - particle[i].p[0];	
+		particle[i].f[1] = 0.0 - particle[i].p[1];
+		particle[i].f[2] = 0.0 - particle[i].p[2];
+		
+		particle[i].v[0] += particle[i].f[0]/10.0;	
+		particle[i].v[1] += particle[i].f[1]/10.0;
+		particle[i].v[2] += particle[i].f[2]/10.0;		
+		
+		particle[i].p[0] += 10.0*particle[i].v[0]*dt; 
+		particle[i].p[1] += 10.0*particle[i].v[1]*dt;
+		particle[i].p[2] += 10.0*particle[i].v[2]*dt; 
 	}
-	
-
-
-
-	//printf("The current position of particle %i is (%.4f, %.4f, %.4f)\n", 
-	//	N, particle[N].p[0], particle[N].p[1], particle[N].p[2]);
-	
 	
 	
 	// MOVE BODIES
-
-	/*
-	printf("The current position of particle 0 is (%.4f, %.4f, %.4f)\n", 
-		particle[0].p[0], particle[0].p[1], particle[0].p[2]);
-	printf("The current position of particle 1 is (%.4f, %.4f, %.4f)\n", 
-		particle[1].p[0], particle[1].p[1], particle[1].p[2]);
-	printf("The current position of particle 2 is (%.4f, %.4f, %.4f)\n", 
-		particle[2].p[0], particle[2].p[1], particle[2].p[2]);
-	printf("The current position of particle 3 is (%.4f, %.4f, %.4f)\n", 
-		particle[3].p[0], particle[3].p[1], particle[3].p[2]);
-	*/
-
-				
 	for(i=0; i<NFISH; i++)
 	{
 		// reset the forces to 0.0 
@@ -272,14 +263,7 @@ int n_body()
 			d[1] = particle[j].p[1] - particle[i].p[1];
 			d[2] = particle[j].p[2] - particle[i].p[2];
 
-			//printf("force on i is %.4f \n", particle[i].f[0]);
-			//printf("force on j is %.4f \n", particle[j].f[0]);
-			//printf("position i is %.4f \n", particle[i].p[0]);
-			//printf("position j is %.4f \n", particle[j].p[0]);
-			//printf("d is %.4f \n", d[0]);
-			
 			r = sqrt(d[0]*d[0] + d[1]*d[1] + d[2]*d[2]);
-			//printf("r is %.4f \n", r);
 			
 			if(r < SEARCH_DISTANCE && i != j)
 			{	
@@ -290,9 +274,6 @@ int n_body()
 				particle[j].f[0] += (STOP_DISTANCE - r)*d[0]*K1/r;
 				particle[j].f[1] += (STOP_DISTANCE - r)*d[1]*K1/r;
 				particle[j].f[2] += (STOP_DISTANCE - r)*d[2]*K1/r;
-
-				
-				//printf("force is %.4f \n", particle[i].f[0]);
 			}
 		}
 	}
@@ -302,9 +283,6 @@ int n_body()
 	{			
 		for(j=0; j<3; j++)
 		{
-			//vc[i][j] = (CENTER[j] - p[i][j]);
-			//vn[i][j] += (f[i][j] - DAMP*vn[i][j])*dt;
-			//danger_d = sqrt((particle[N+1].p[j] - particle[i].p[j])*(particle[N+1].p[j]-particle[i].p[j]));
 			particle[i].vc[j] = (particle[NFISH].p[j] - particle[i].p[j]);
 			//		  - (particle[N+1].p[j]-particle[i].p[j])/(10.0);
 			particle[i].vn[j] += (particle[i].f[j] - DAMP*particle[i].vn[j]*dt);
@@ -312,10 +290,6 @@ int n_body()
 		
 		for(j=0; j<3; j++)
 		{
-			//v[i][j] = vc[i][j] + vn[i][j];
-			//v[i][j] *= 5.0;
-			//p[i][j] += v[i][j]*dt;
-			
 			particle[i].v[j] = 5.0*particle[i].vc[j] + particle[i].vn[j];
 			particle[i].v[j] *= SPEED;
 			particle[i].p[j] += particle[i].v[j]*dt;
@@ -323,20 +297,15 @@ int n_body()
 		particle[i].p[2] = 0.0;
 		
 		// Diagnostics
-		
 		//printf("The position of particle %i is (%.4f, %.4f, %.4f)\n", 
 		//		i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
-				
 		//printf("The velocity of particle %i is (%.4f, %.4f, %.4f)\n", 
 		//		i, particle[i].v[0], particle[i].v[1], particle[i].v[2]);
-
 		//printf("The forces on particle %i are (%.4f, %.4f, %.4f)\n", 
 		//		i, particle[i].f[0], particle[i].f[1], particle[i].f[2]);
-		
 		//printf("\n");
 		
 	}
-	
 
 	TIMERUNNING += dt;
 	//printf("%.4f\n", time);
@@ -347,25 +316,10 @@ int n_body()
 }
 
 
-/*void control()
-{	
-	int    tdraw = 0;
-	double  time = 0.0;
-
-
-}*/
-
-
 void arrowFunc(int key, int x, int y) 
 {
 	switch (key) 
-	{    
-		//case 100 :
-		//	printf("Left arrow");
-		//	; break;
-		//case 102 :
-		//	printf("Right arrow");  	
-		//	; break;
+	{	//100 is left arrow, 102 is right arrow.    
 		case 101 : // Up arrow
 			SPEED *= 1.1;
 			printf("Speed: %.4f\n", SPEED);		
@@ -378,14 +332,19 @@ void arrowFunc(int key, int x, int y)
 }
 
 
-
 void keyboardFunc( unsigned char key, int x, int y )
 {
 	switch(key) 
 	{
-		case 'q': exit(1);
-		default:
-			break;
+		case 'q': 
+			exit(1);
+
+		case ' ': 
+			PAUSE++;
+			if(PAUSE == 2)
+			{
+				PAUSE = 0;
+			}
 	}
 }
 
@@ -397,7 +356,7 @@ void mouseFunc( int button, int state, int x, int y )
 	{
 		if( state == GLUT_DOWN ) // when left mouse button goes down.
 		{
-			printf("FOODPOINTER is %i \n", FOODPOINTER);
+			//printf("FOODPOINTER is %i \n", FOODPOINTER);
 			coord[0] = (x*4.0/XWindowSize)-2.0;
 			coord[1] = -(y*4.0/YWindowSize)+2.0;
 			coord[2] = 0.0;
@@ -420,7 +379,10 @@ void mouseFunc( int button, int state, int x, int y )
 	
 void update(int value)
 {
-	n_body();
+	if(PAUSE == 0)
+	{
+		n_body();
+	}	
 
     	glutSpecialFunc( arrowFunc );
 	glutKeyboardFunc( keyboardFunc );
@@ -488,9 +450,5 @@ int main(int argc, char** argv)
 	glutReshapeFunc(reshape);
 	glutMainLoop();
 	return 0;
-}	
-	
-	
-	
-	
+}
 
