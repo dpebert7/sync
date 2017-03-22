@@ -28,11 +28,11 @@ Fix forces between bodies, and make forces move predators in circle.
 				// This value seems really important.
 
 //NAMING TEMP FILE #defines			
-#define DAMP 	0.8
-#define K1 	300
-#define NFISH 	50  // number of bodies
-#define NFOOD	1
-#define NPRED	1
+#define DAMP 	0.7
+#define K1 	200
+#define NFISH 	100  // number of bodies
+#define NFOOD	0
+#define NPRED	0
 #define N	NFISH + NFOOD + NPRED
 
 // Global variable
@@ -42,7 +42,7 @@ double 	CENTER[3],	// Center or point of attraction;
 
 //int	N = NFISH + NFOOD + NPRED;
 double 	TIMERUNNING = 0.0;
-double 	SPEED = 1.0;
+double 	SPEED = 0.5;
 //double	SPEED = 0.0001;
 int 	FOODPOINTER = NFISH;
 int	PAUSE = 0;
