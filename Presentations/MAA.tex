@@ -9,19 +9,22 @@
 \usepackage{soul}
 \usepackage{booktabs}
 \usepackage{multicol}
-\usepackage{multimedia} % For movies 
+\usepackage{multimedia} % For movies
+\usepackage{pgfplots} % For generating random numbers for tikz 
+
+\usetikzlibrary{calc}
 
 %%% Creating Tarleton Purple %%%
 \definecolor{TarletonPurple}{RGB}{79, 45, 127}
 
 
 %%% Beamer Theme %%%
-\usetheme{Singapore}
+\usetheme{Szeged}
 \usecolortheme[named=TarletonPurple]{structure}
 
 
 %%% Graphics Path %%%
-\graphicspath{{./Images}}
+\graphicspath{{./images}}
 
 %%% Title Page Info %%%
 \title{SYNC or Swim}
@@ -40,7 +43,7 @@
 \makeatletter
 \def\beamer@framenotesbegin{
 \begin{reference}{1mm}{1mm}
-\tikz\node[opacity=0.8]{\includegraphics[scale=0.25]{images/Tarleton_State_University}};
+\tikz\node[opacity=1.0]{\includegraphics[scale=0.25]{images/Tarleton_State_University}};
 \end{reference} 
 }
 
@@ -71,9 +74,22 @@
 	Real life examples
 	\begin{itemize}
 		\item Animal Swarming
-		\item Human Imitation  (Memes/Trends)
 	\end{itemize}
-	Coupled oscillators are systems of masses that are connected by springs.\\
+	\begin{center}
+	\includegraphics[scale=1.15]{images/geese_flock.jpg}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Coupling}	
+	One object influencing another by providing feedback. \\
+	Real life examples
+	\begin{itemize}
+		\item Human Imitation (Memes/Trends)
+	\end{itemize}
+	\begin{center}
+	\includegraphics[scale=0.15]{images/salt_guy.jpg}
+	\end{center}
 \end{frame}
 
 \begin{frame}
@@ -114,6 +130,14 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{Coupling}
+	Coupled oscillators are systems of masses connected by springs.
+	\begin{center}
+		\includegraphics[scale=0.4]{images/coupled_oscillators}
+	\end{center}
+\end{frame}
+
+\begin{frame}
 	\frametitle{The Mathematics}
 	\begin{itemize}
 		\item Lagrangian Algorithm
@@ -122,6 +146,35 @@
 		\end{itemize}
 		\item Metric distance model - calculate forces on individual particles based on distance to other particles
 	\end{itemize}
+	\begin{figure}
+		\centering
+%		\begin{tikzpicture}[declare function={a(\x)=sqrt{\x^2 -1};},
+%							declare function={b(\x)=-sqrt{\x^2 -1};},
+%							declare function={c(\x)=sqrt{x^2 - 4};},
+%							declare function={d(\x)=-sqrt{x^2 - 4};},
+%							declare function={h(\x)=sqrt{x^2 - 6};},
+%							declare function={f(\x)=-sqrt{x^2 - 6};}]
+%			\draw[TarletonPurple, ultra thick] (0, 0) rectangle (10, 5);
+%			\draw[TarletonPurple, ultra thick] (5, 5) -- (5, 0);
+%			\foreach \x in {2.5, 7.5}{	
+%				\fill[Emerald] (\x, 2.5) circle [radius=4pt];
+%			}
+%			\foreach \x [evaluate=\x as \xval using rand+2.5]in {1, ..., 3}{
+%				\foreach \y [evaluate=\y as \yval using rand+2.5] in {1, ..., 2}{
+%					\fill[Goldenrod] ($(\xval + 5, \yval)$) circle [radius=4pt];
+%				}
+%			}
+%			\foreach \y [evaluate=\y as \yval using rnd*5] in {1, 2}{
+%				\foreach \x [evaluate=\x as \xval using rnd+5.25] in {1, ..., 3}{
+%					\fill[TarletonPurple] (\xval, \yval) circle [radius=4pt];
+%				}
+%			}
+%%			\draw[TarletonPurple, ultra thick] (
+%
+%		\end{tikzpicture}
+
+	\includegraphics[scale=0.25]{images/distance_models.png}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -130,7 +183,7 @@
 	\pause
 	\begin{itemize}
 		\item Calculate distance between particle $i$ and every other particle. \pause
-		\item If the distance between some particle $j$ and particle $i$ is smaller than predefined search distance, then use Hook's law to determine the forces between particle $j$ and particle $i$. \pause
+		\item If the distance between some particle $j$ and particle $i$ is smaller than predefined search distance, then use Hooke's law to determine the forces between particle $j$ and particle $i$. \pause
 		\item Use force calculated above to update particle $i$'s velocity as follows: \pause
 			\begin{equation*}
 				v_{i} = v_{i} + a_{i}dt
@@ -155,7 +208,7 @@
 			\begin{itemize}
 				\item Density of swarms, how they behave towards targets and obstacles, etc.
 			\end{itemize}
-		\item Move calculations from CPU to GPU to speed calculation time
+		\item Move calculations from CPU to GPU to speed up calculation time
 	\end{itemize}
 \end{frame}
 
