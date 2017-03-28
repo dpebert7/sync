@@ -6,7 +6,7 @@ Fix forces between bodies, and make forces move predators in circle.
 11 March 2017
 */
 
-// gcc forces_v2.c -o temp -lglut -lm -lGLU -lGL && ./temp
+// gcc forces_ebert.c -o temp -lglut -lm -lGLU -lGL && ./temp
 
 #include <GL/glut.h>
 #include <math.h>
@@ -28,11 +28,11 @@ Fix forces between bodies, and make forces move predators in circle.
 				// This value seems really important.
 
 //NAMING TEMP FILE #defines			
-#define DAMP 	0.9
-#define K1 	100
-#define NFISH 	5  // number of bodies
-#define NFOOD	1
-#define NPRED	1
+#define DAMP 	0.7
+#define K1 	200
+#define NFISH 	100  // number of bodies
+#define NFOOD	0
+#define NPRED	0
 #define N	NFISH + NFOOD + NPRED
 
 // Global variable
@@ -42,7 +42,7 @@ double 	CENTER[3],	// Center or point of attraction;
 
 //int	N = NFISH + NFOOD + NPRED;
 double 	TIMERUNNING = 0.0;
-double 	SPEED = 1.0;
+double 	SPEED = 0.5;
 //double	SPEED = 0.0001;
 int 	FOODPOINTER = NFISH;
 int	PAUSE = 0;
@@ -70,13 +70,13 @@ void initialize_bodies()
 	// Initialize Fish
 	for(i=0; i<NFISH; i++)
 	{	
-		//* Option to start in a CIRCLE
+		/* Option to start in a CIRCLE
 		particle[i].p[0] = sin(i*2*PI/NFISH)*2.0;
 		particle[i].p[1] = cos(i*2*PI/NFISH)*2.0;
 		particle[i].p[2] = 0.0;
 		//*/
 		
-		/* Option to start in RANDOM positions
+		//* Option to start in RANDOM positions
 		particle[i].p[0] = (((double)rand()/(double)RAND_MAX)-0.5)*10.0;
 		particle[i].p[1] = (((double)rand()/(double)RAND_MAX)-0.5)*10.0;
 		particle[i].p[2] = (((double)rand()/(double)RAND_MAX)-0.5)*3.0;
@@ -118,13 +118,13 @@ void initialize_bodies()
 	// Initialize Food
 	for(i=NFISH; i<NFISH+NFOOD; i++)
 	{
-		//* Option to start in a CIRCLE
+		/* Option to start in a CIRCLE
 		particle[i].p[0] = sin(i*2*PI/NFOOD);
 		particle[i].p[1] = cos(i*2*PI/NFOOD);
 		particle[i].p[2] = 0.0;
 		//*/
 
-		/* Option to start in RANDOM positions
+		//* Option to start in RANDOM positions
 		particle[i].p[0] = (((double)rand()/(double)RAND_MAX)-0.5)*1.0;
 		particle[i].p[1] = (((double)rand()/(double)RAND_MAX)-0.5)*1.0;
 		particle[i].p[2] = 0.0; //(((double)rand()/(double)RAND_MAX)-0.5)*3.0;
@@ -281,18 +281,18 @@ int n_body()
 		particle[i].p[2] = 0.0;
 		
 		// Diagnostics
-		printf("The position of particle %i is (%.4f, %.4f, %.4f)\n", 
-				i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
-		printf("The velocity of particle %i is (%.4f, %.4f, %.4f)\n", 
-				i, particle[i].v[0], particle[i].v[1], particle[i].v[2]);
-		printf("The forces on particle %i are (%.4f, %.4f, %.4f)\n", 
-				i, particle[i].f[0], particle[i].f[1], particle[i].f[2]);
-		printf("\n");
+		//printf("The position of particle %i is (%.4f, %.4f, %.4f)\n", 
+		//		i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
+		//printf("The velocity of particle %i is (%.4f, %.4f, %.4f)\n", 
+		//		i, particle[i].v[0], particle[i].v[1], particle[i].v[2]);
+		//printf("The forces on particle %i are (%.4f, %.4f, %.4f)\n", 
+		//		i, particle[i].f[0], particle[i].f[1], particle[i].f[2]);
+		//printf("\n");
 		
 	}
 
 	TIMERUNNING += dt;
-	printf("%.4f\n", TIMERUNNING);
+	//printf("%.4f\n", TIMERUNNING);
 	tdraw++;
 	tprint++;
 }
