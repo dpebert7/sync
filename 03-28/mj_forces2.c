@@ -15,6 +15,7 @@ Try new force calculation
 #include <stdlib.h>
 #include <time.h>
 
+#define EYEZ		100.0 // Effectively sets x- and y-coordinates from -EYEZ to +EYEZ
 #define PI		3.1415926535
 #define DRAW 		10	// For draw_picture
 #define XWindowSize 	1000 	// 700 initially 
@@ -81,7 +82,7 @@ void initialize_bodies()
 		particle[i].f[2] = 0.0;
 		
 		// Radius and Color
-		particle[i].radius = 0.025; // default was 0.05
+		particle[i].radius = 0.1; // default was 0.05
 		particle[i].color[0] = 1.0; // Default is yellow
 		particle[i].color[1] = 1.0;
 		particle[i].color[2] = 0.5;
@@ -92,8 +93,8 @@ void initialize_bodies()
 		// Type
 		particle[i].type = 1;
 		
-		printf("The starting position of particle %i is (%.4f, %.4f, %.4f)\n", 
-			i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
+		//printf("The starting position of particle %i is (%.4f, %.4f, %.4f)\n", 
+		//	i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
 	}
 
 	//Initialize Food
@@ -118,13 +119,13 @@ void initialize_bodies()
 		//*/
 	
 		// Target Radius and Color
-		particle[i].radius = 0.05; // default was 0.05
+		particle[i].radius = 0.5; // default was 0.05
 		particle[i].color[0] = 0.0;
 		particle[i].color[1] = 0.0;
 		particle[i].color[2] = 1.0;
 	
-		printf("The starting position of particle %i (target) is (%.4f, %.4f, %.4f)\n", 
-			i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
+		//printf("The starting position of particle %i (target) is (%.4f, %.4f, %.4f)\n", 
+		//	i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
 	}
 
 
@@ -162,13 +163,13 @@ void initialize_bodies()
 			//particle[i].f[2] = 0.0;
 		
 			// Predator Radius and Color
-			particle[i].radius = 0.05; // default was 0.05
+			particle[i].radius = 0.5; // default was 0.05
 			particle[i].color[0] = 1.0;
 			particle[i].color[1] = 0.5;
 			particle[i].color[2] = 1.0;
 	
-			printf("The starting position of particle %i (predator) is (%.4f, %.4f, %.4f)\n", 
-				i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
+			//printf("The starting position of particle %i (predator) is (%.4f, %.4f, %.4f)\n", 
+			//	i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
 		}	
 	}
 	
@@ -297,18 +298,18 @@ int n_body()
 		//particle[i].p[0] *= 0.5;
 	
 		// Diagnostics
-		printf("The position of particle %i is (%.4f, %.4f, %.4f)\n", 
-				i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
+		//printf("The position of particle %i is (%.4f, %.4f, %.4f)\n", 
+		//		i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
 		//printf("The velocity of particle %i is (%.4f, %.4f, %.4f)\n", 
-				//i, particle[i].v[0], particle[i].v[1], particle[i].v[2]);
+		//		i, particle[i].v[0], particle[i].v[1], particle[i].v[2]);
 		//printf("The forces on particle %i are (%.4f, %.4f, %.4f)\n", 
-				//i, particle[i].f[0], particle[i].f[1], particle[i].f[2]);
-		printf("\n");
+		//		i, particle[i].f[0], particle[i].f[1], particle[i].f[2]);
+		//printf("\n");
 		
 	}
 
 	TIMERUNNING += dt;
-	printf("%.4f\n", TIMERUNNING);
+	//printf("%.4f\n", TIMERUNNING);
 	tdraw++;
 	tprint++;
 }
@@ -354,8 +355,8 @@ void mouseFunc( int button, int state, int x, int y )
 		if( state == GLUT_DOWN ) // when left mouse button goes down.
 		{
 			//printf("FOODPOINTER is %i \n", FOODPOINTER);
-			coord[0] = (x*4.0/XWindowSize)-2.0;
-			coord[1] = -(y*4.0/YWindowSize)+2.0;
+			coord[0] = (x*EYEZ*2.0/XWindowSize)-EYEZ;
+			coord[1] = -(y*EYEZ*2.0/YWindowSize)+EYEZ;
 			coord[2] = 0.0;
 			printf("The food is at (%.4f, %.4f, %.4f)\n",
 				coord[0], coord[1], coord[2]);
@@ -443,7 +444,7 @@ int main(int argc, char** argv)
 	glEnable(GL_DEPTH_TEST);
 
 	initialize_bodies();
-	gluLookAt(0.0, 0.0, 100.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	gluLookAt(0.0, 0.0, EYEZ, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 	glutDisplayFunc(Display);
 	glutTimerFunc(16, update, 0);
 	glutReshapeFunc(reshape);

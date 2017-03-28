@@ -6,7 +6,7 @@ Fix forces between bodies, and make forces move predators in circle.
 11 March 2017
 */
 
-// gcc forces_v3.c -o temp -lglut -lm -lGLU -lGL && ./temp
+// gcc forces_ebert.c -o temp -lglut -lm -lGLU -lGL && ./temp
 
 #include <GL/glut.h>
 #include <math.h>
