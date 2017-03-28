@@ -1,0 +1,56 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+%%% Packages %%%
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{subfig}
+\usepackage{tikz}
+\usepackage[absolute, overlay]{textpos}
+\usepackage{soul}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multimedia} % For movies
+\usepackage{pgfplots} % For generating random numbers for tikz 
+
+\usetikzlibrary{calc}
+
+%%% Creating Tarleton Purple %%%
+\definecolor{TarletonPurple}{RGB}{79, 45, 127}
+
+
+%%% Beamer Theme %%%
+\usetheme{Copenhagen}
+\usecolortheme[named=TarletonPurple]{structure}
+
+
+%%% Graphics Path %%%
+\graphicspath{{./images}}
+
+%%% Title Page Info %%%
+\title{Ice Ice Baby}
+\subtitle{Simulating the Molecular Interactions of Water Molecules and the Formation of Ice Crystals}
+\author{Michael Rubio and Pedro Romero}
+\institute{Tarleton State University}
+\date{March 31, 2017}
+
+%%% Making Reference Environment For Tarleton Picture %%%
+\newenvironment{reference}[2]{
+\begin{textblock*}{\textwidth}(#1,#2)              
+  \footnotesize\it\bgroup\color{red!50!black}}{\egroup\end{textblock*}}
+
+
+\begin{document}
+\makeatletter
+\def\beamer@framenotesbegin{
+\begin{reference}{107mm}{0.5mm}
+\tikz\node[opacity=1.0]{\includegraphics[scale=0.4]{images/tsumath_copy}};
+\end{reference} 
+}
+
+\frame{\titlepage}
+
+\begin{frame}
+	\frametitle{~~~~~~~~~}
+\end{frame}
+
+\end{document}
