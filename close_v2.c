@@ -7,7 +7,7 @@ Try new force calculation
 28 March 2017
 */
 
-// gcc close_v1.c -o temp -lglut -lm -lGLU -lGL && ./temp
+// gcc close_v2.c -o temp -lglut -lm -lGLU -lGL && ./temp
 
 #include <GL/glut.h>
 #include <math.h>
