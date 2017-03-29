@@ -9,11 +9,16 @@ Try new force calculation
 
 // gcc mj_forces2.c -o mj_forces2 -lglut -lm -lGLU -lGL && ./mj_forces2
 
-#include <GL/glut.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+#ifdef __APPLE__ 
+#include <GLUT/glut.h>
+#else 
+#include <GL/glut.h>
+#endif
 
 #define EYEZ		100.0 // Effectively sets x- and y-coordinates from -EYEZ to +EYEZ
 #define PI		3.1415926535
