@@ -266,23 +266,23 @@ int n_body()
 				particle[j].f[2] += WA*(CA*(d[2]/r2) - CR*(d[2]/r4)) + WD*(particle[i].v[2]/r);
 			}
 
-		for(j=NFISH+NFOOD; j<N; j++) //j is predator; i is fish
-		{
-			d[0] = particle[j].p[0] - particle[i].p[0];
-			d[1] = particle[j].p[1] - particle[i].p[1];
-			d[2] = particle[j].p[2] - particle[i].p[2];
-
-			r2 = d[0]*d[0] + d[1]*d[1] + d[2]*d[2] + EPSILON;
-			r = sqrt(r2) + EPSILON;
-			r4 = r2*r2 + EPSILON;
-
-			if(r < SIGHT && i != j)
+			for(j=NFISH+NFOOD; j<N; j++) //j is predator; i is fish
 			{
-				particle[i].f[0] -= CPR*(d[0]/r4);
-				particle[i].f[1] -= CPR*(d[1]/r4);
-				particle[i].f[2] -= CPR*(d[2]/r4);
+				d[0] = particle[j].p[0] - particle[i].p[0];
+				d[1] = particle[j].p[1] - particle[i].p[1];
+				d[2] = particle[j].p[2] - particle[i].p[2];
+
+				r2 = d[0]*d[0] + d[1]*d[1] + d[2]*d[2] + EPSILON;
+				r = sqrt(r2) + EPSILON;
+				r4 = r2*r2 + EPSILON;
+
+				if(r < SIGHT && i != j)
+				{
+					particle[i].f[0] -= CPR*(d[0]/r4);
+					particle[i].f[1] -= CPR*(d[1]/r4);
+					particle[i].f[2] -= CPR*(d[2]/r4);
+				}
 			}
-		}
 			//printf("The current force vector for particle %d is: (%lf, %lf, %lf)\n", i, particle[i].f[0], particle[i].f[1], particle[i].f[0]);
 		}
 	}

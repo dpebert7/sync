@@ -7,7 +7,7 @@ Try new force calculation
 28 March 2017
 */
 
-// gcc close_v2.c -o temp -lglut -lm -lGLU -lGL && ./temp
+// gcc close_v5_3D.c -o temp -lglut -lm -lGLU -lGL && ./temp
 
 #include <GL/glut.h>
 #include <math.h>
@@ -18,7 +18,7 @@ Try new force calculation
 
 
 
-
+#define EPSILON		0.000001
 #define EYEZ		50.0 // Effectively sets x- and y-coordinates from -EYEZ to +EYEZ
 #define BOUNDARY	EYEZ-1.0 // Walls
 #define BDIST		10.0 // Distance from boundary at which curving should start.
@@ -29,6 +29,7 @@ Try new force calculation
 
 #define DT        	0.001 	// Time step
 #define STOP_TIME	10.0 	// How long to go
+//#define STOP_TIME	0.0003
 
 #define SIGHT 		10.0 // How far the fish can 'see'
 #define WA		2.0 // Attraction Weight Ratio
@@ -38,7 +39,7 @@ Try new force calculation
 
 #define NFISH 		500 // Number of fish
 #define NFOOD 		1 //Number of Targets
-#define NPRED		1 //Number of Predators
+#define NPRED		0 //Number of Predators
 #define N		NFISH + NFOOD + NPRED // Total number of particles
 
 
@@ -47,7 +48,7 @@ Try new force calculation
 double CENTER[3], // Center or point of attraction
 	r;	  // Distance between particles
 double 	TIMERUNNING = 0.0;
-double 	SPEED = 40.0;
+double 	SPEED = 50000.0;
 
 int 	FOODPOINTER = NFISH; // Our first food particle
 int	PAUSE = 0;
@@ -84,14 +85,14 @@ void initialize_bodies()
 		//* Option to start in RANDOM positions
 		particle[i].p[0] = (((double)rand()/(double)RAND_MAX)-0.5)*20.0;
 		particle[i].p[1] = (((double)rand()/(double)RAND_MAX)-0.5)*20.0;
-		particle[i].p[2] = 0.0;//(((double)rand()/(double)RAND_MAX)-0.5)*20.0;
+		particle[i].p[2] = (((double)rand()/(double)RAND_MAX)-0.5)*0.0;
 		//*/
 			
 		// Body velocities:
 		//particle[i].v[0] = 1000.0*sin(particle[i].p[1]/30.0);
 		//particle[i].v[1] = -1000.0*sin(particle[i].p[0]/30.0);
 		//particle[i].v[2] = 0.0;//10000.0*cos(particle[i].p[2]);
-		particle[i].v[0] = 100.0;
+		particle[i].v[0] = 0.0;
 		particle[i].v[1] = 0.0;
 		particle[i].v[2] = 0.0;
 
@@ -166,12 +167,6 @@ void initialize_bodies()
 			//*/
 		
 			// Predator Starting Velocities
-			//particle[i].vc[0] = 0.0; //ignore
-			//particle[i].vc[1] = 0.0; //ignore
-			//particle[i].vc[2] = 0.0; //ignore
-			//particle[i].vn[0] = 0.0; //ignore
-			//particle[i].vn[1] = 0.0; //ignore
-			//particle[i].vn[2] = 0.0; //ignore
 			 particle[i].v[0] = 1000.0*cos(particle[i].p[0]); 
 			 particle[i].v[1] = 1000.0*sin(particle[i].p[1]);
 			 particle[i].v[2] = 0.0;
@@ -256,9 +251,9 @@ int n_body()
 			d[2] = particle[i].p[2] - particle[j].p[2];
 			//printf("The distance between %d and %d in the x direction is %lf\n The distance between %d and %d in the y direction is %lf\n The distance between %d and %d in the z direction is %lf\n", i, j, d[0], i, j, d[1], i, j, d[2]);
 
-			r2 = d[0]*d[0] + d[1]*d[1] + d[2]*d[2] + 0.0000000001;
-			r = sqrt(r2) + 0.000000001;
-			r4 = r2*r2 + 0.000000001;
+			r2 = d[0]*d[0] + d[1]*d[1] + d[2]*d[2] + EPSILON;
+			r = sqrt(r2) + EPSILON;
+			r4 = r2*r2 + EPSILON;
 			//printf("The Euclidean distance between %d and %d is %lf\n", i, j, r);
 
 			if(r < SIGHT && i != j)
@@ -285,10 +280,16 @@ int n_body()
 		if(particle[i].p[0]>(BOUNDARY-BDIST))// && particle[i].v[0]>0.0){
 		{
 			particle_dist = BOUNDARY-particle[i].p[0];
-			particle[i].f[0] -= ((BDIST-particle_dist)*SPEED/particle_dist);
-			if(particle[i].p[1] < (BOUNDARY-BDIST) && particle[i].p[1] > (BDIST-BOUNDARY))
+			if(particle_dist < BOUNDARY*0.25)
 			{
-				particle[i].f[1] += SPEED*(sqrt(particle[i].v[0]*particle[i].v[0])/(particle[i].v[1]+0.0001));
+				particle[i].f[0] -= ((BDIST-particle_dist)*SPEED/particle_dist);	
+			}
+
+
+			if(particle[i].p[1] < (BOUNDARY-BDIST) && particle[i].p[1] > (BDIST-BOUNDARY) && particle[i].p[2] > (BDIST-BOUNDARY) && particle[i].p[2] > (BDIST-BOUNDARY))
+			{
+				particle[i].f[1] += SPEED*(sqrt(particle[i].v[0]*particle[i].v[0])/(particle[i].v[1]+EPSILON));
+				particle[i].f[2] += SPEED*(sqrt(particle[i].v[0]*particle[i].v[0])/(particle[i].v[2]+EPSILON));
 			}
 		}
 
@@ -296,10 +297,15 @@ int n_body()
 		if(particle[i].p[0]<(BDIST-BOUNDARY))// && particle[i].v[0]>0.0){
 		{
 			particle_dist = BOUNDARY+particle[i].p[0];
-			particle[i].f[0] += ((BDIST-particle_dist)*SPEED/particle_dist);
-			if(particle[i].p[1] < (BOUNDARY-BDIST) && particle[i].p[1] > (BDIST-BOUNDARY))
+			if(particle_dist < BOUNDARY*0.25)
 			{
-				particle[i].f[1] += SPEED*(sqrt(particle[i].v[0]*particle[i].v[0])/(particle[i].v[1]+0.0001));
+				particle[i].f[0] += ((BDIST-particle_dist)*SPEED/particle_dist);
+			}
+
+			if(particle[i].p[1] < (BOUNDARY-BDIST) && particle[i].p[1] > (BDIST-BOUNDARY) && particle[i].p[2] > (BDIST-BOUNDARY) && particle[i].p[2] > (BDIST-BOUNDARY))
+			{
+				particle[i].f[1] += SPEED*(sqrt(particle[i].v[0]*particle[i].v[0])/(particle[i].v[1]+EPSILON));
+				particle[i].f[2] += SPEED*(sqrt(particle[i].v[0]*particle[i].v[0])/(particle[i].v[2]+EPSILON));
 			}
 		}
 
@@ -307,10 +313,15 @@ int n_body()
 		if(particle[i].p[1]>(BOUNDARY-BDIST))// && particle[i].v[0]>0.0){
 		{
 			particle_dist = BOUNDARY-particle[i].p[1];
-			particle[i].f[1] -= ((BDIST-particle_dist)*SPEED/particle_dist);
-			if(particle[i].p[0] < (BOUNDARY-BDIST) && particle[i].p[0] > (BDIST-BOUNDARY))
+			if(particle_dist < BOUNDARY*0.25)
 			{
-				particle[i].f[0] += SPEED*(sqrt(particle[i].v[1]*particle[i].v[1])/(particle[i].v[0]+0.0001));
+				particle[i].f[1] -= ((BDIST-particle_dist)*SPEED/particle_dist);
+			}
+
+			if(particle[i].p[0] < (BOUNDARY-BDIST) && particle[i].p[0] > (BDIST-BOUNDARY) && particle[i].p[2] > (BDIST-BOUNDARY) && particle[i].p[2] > (BDIST-BOUNDARY))
+			{
+				particle[i].f[0] += SPEED*(sqrt(particle[i].v[1]*particle[i].v[1])/(particle[i].v[0]+EPSILON));
+				particle[i].f[2] += SPEED*(sqrt(particle[i].v[1]*particle[i].v[1])/(particle[i].v[2]+EPSILON));
 			}
 		}
 
@@ -318,11 +329,50 @@ int n_body()
 		if(particle[i].p[1]<(BDIST-BOUNDARY))// && particle[i].v[0]>0.0){
 		{
 			particle_dist = BOUNDARY+particle[i].p[1];
-			particle[i].f[1] += ((BDIST-particle_dist)*SPEED/particle_dist);
-			if(particle[i].p[0] < (BOUNDARY-BDIST) && particle[i].p[0] > (BDIST-BOUNDARY))
+			if(particle_dist < BOUNDARY*0.25)
 			{
-				particle[i].f[0] += SPEED*(sqrt(particle[i].v[1]*particle[i].v[1])/(particle[i].v[0]+0.0001));
+				particle[i].f[1] += ((BDIST-particle_dist)*SPEED/particle_dist);
+			}
+
+			if(particle[i].p[0] < (BOUNDARY-BDIST) && particle[i].p[0] > (BDIST-BOUNDARY) && particle[i].p[2] > (BDIST-BOUNDARY) && particle[i].p[2] > (BDIST-BOUNDARY))
+			{
+				particle[i].f[0] += SPEED*(sqrt(particle[i].v[1]*particle[i].v[1])/(particle[i].v[0]+EPSILON));
+				particle[i].f[2] += SPEED*(sqrt(particle[i].v[1]*particle[i].v[1])/(particle[i].v[2]+EPSILON));
 			}		
+		}
+
+		// Front wall
+		if(particle[i].p[2]>(BOUNDARY-BDIST))// && particle[i].v[0]>0.0){
+		{
+			particle_dist = BOUNDARY-particle[i].p[2];
+			if(particle_dist < BOUNDARY*0.25)
+			{
+				particle[i].f[2] -= ((BDIST-particle_dist)*SPEED/particle_dist);	
+			}
+
+
+			if(particle[i].p[1] < (BOUNDARY-BDIST) && particle[i].p[1] > (BDIST-BOUNDARY) && particle[i].p[0] > (BDIST-BOUNDARY) && particle[i].p[0] > (BDIST-BOUNDARY))
+			{
+				particle[i].f[1] += SPEED*(sqrt(particle[i].v[2]*particle[i].v[2])/(particle[i].v[1]+EPSILON));
+				particle[i].f[0] += SPEED*(sqrt(particle[i].v[2]*particle[i].v[2])/(particle[i].v[0]+EPSILON));
+			}
+		}
+
+		// Back wall
+		if(particle[i].p[2]<(BDIST-BOUNDARY))// && particle[i].v[0]>0.0){
+		{
+			particle_dist = BOUNDARY+particle[i].p[2];
+			if(particle_dist < BOUNDARY*0.25)
+			{
+				particle[i].f[2] += ((BDIST-particle_dist)*SPEED/particle_dist);	
+			}
+
+
+			if(particle[i].p[1] < (BOUNDARY-BDIST) && particle[i].p[1] > (BDIST-BOUNDARY) && particle[i].p[0] > (BDIST-BOUNDARY) && particle[i].p[0] > (BDIST-BOUNDARY))
+			{
+				particle[i].f[1] += SPEED*(sqrt(particle[i].v[2]*particle[i].v[2])/(particle[i].v[1]+EPSILON));
+				particle[i].f[0] += SPEED*(sqrt(particle[i].v[2]*particle[i].v[2])/(particle[i].v[0]+EPSILON));
+			}
 		}
 		
 
@@ -356,38 +406,6 @@ int n_body()
 		particle[i].v[0] *= SPEED;
 		particle[i].v[1] *= SPEED;
 		particle[i].v[2] *= SPEED;
-
-		/*
-		// Right wall
-		if(particle[i].p[0]>(BOUNDARY-BDIST) && particle[i].v[0]>0.0){
-			particle_dist = BOUNDARY - particle[i].p[0];
-			particle[i].v[0] *= ((BDIST-particle_dist)/BDIST);
-			particle[i].v[1] += (BDIST-particle_dist/(2*BDIST))*particle[i].v[1];
-		}
-
-		
-		// Left wall
-		if(particle[i].p[0]<(BDIST-BOUNDARY) && particle[i].v[0]<0.0){
-			particle_dist = BOUNDARY + particle[i].p[0];
-			particle[i].v[0] = (particle_dist/BDIST)*particle[i].v[0];
-			particle[i].v[1] += (particle_dist-BDIST/BDIST)*particle[i].v[1];
-		}
-
-		// Top wall
-		if(particle[i].p[1]>(BOUNDARY-BDIST) && particle[i].v[1]>0.0){
-			particle_dist = BOUNDARY - particle[i].p[1];
-			particle[i].v[1] = (particle_dist/BDIST)*particle[i].v[1];
-			particle[i].v[0] += (BDIST-particle_dist/BDIST)*particle[i].v[0];
-		}
-
-		
-		// Bottom wall
-		if(particle[i].p[1]<(BDIST-BOUNDARY) && particle[i].v[1]<0.0){
-			particle_dist = BOUNDARY + particle[i].p[1];
-			particle[i].v[1] = (particle_dist/BDIST)*particle[i].v[1];
-			particle[i].v[0] += (BDIST-particle_dist/BDIST)*particle[i].v[0];
-		}
-		*/
 
 		particle[i].p[0] += particle[i].v[0]*dt;
 		particle[i].p[1] += particle[i].v[1]*dt;
@@ -557,7 +575,7 @@ int main(int argc, char** argv)
 	glEnable(GL_DEPTH_TEST);
 
 	initialize_bodies();
-	gluLookAt(0.0, 0.0, EYEZ, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	gluLookAt(0.0, 0.0, EYEZ*2.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 	glutDisplayFunc(Display);
 	glutTimerFunc(16, update, 0);
 	glutReshapeFunc(reshape);
