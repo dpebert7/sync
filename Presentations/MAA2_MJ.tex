@@ -11,6 +11,7 @@
 \usepackage{multicol}
 \usepackage{multimedia} % For movies
 \usepackage{pgfplots} % For generating random numbers for tikz 
+\usepackage{pstricks-add}
 
 \usetikzlibrary{calc}
 \usetikzlibrary{shapes.geometric}
@@ -84,28 +85,18 @@
 \begin{frame}
 	\frametitle{Synchronization}
 	The coordination of events to operate a system in unison.\\ 
-	Some natural physical examples:
+	Some examples:
 	\begin{itemize}
 		\item Circadian Rhythms
-		\item Round of Applause (WHAT?!?! - Let's try it!)
 	\end{itemize}
 \end{frame}
 
-
-\begin{frame}{Example - Human Grouping}
-\begin{center}
-% The movie won't play in a normal .pdf viewer. Okular works.
-\movie[width=10.5cm,height=7.0cm, poster, showcontrols]{}{human_swarm.ogv}
-\end{center}
-\end{frame}
-
-
 \begin{frame}
-	\frametitle{Coupling}	
-	One object influencing another by providing feedback. \\
-	Real life examples
+	\frametitle{Synchronization}
+	The coordination of events to operate a system in unison.\\ 
+	Some examples:
 	\begin{itemize}
-		\item Animal Swarming
+		\item Animal Swarming 
 	\end{itemize}
 	\begin{center}
 	\includegraphics[scale=1.15]{images/geese_flock.jpg}
@@ -113,16 +104,43 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Coupling}	
-	One object influencing another by providing feedback. \\
-	Real life examples
+	\frametitle{Synchronization}
+	The coordination of events to operate a system in unison.\\ 
+	Some examples:
 	\begin{itemize}
-		\item Human Imitation (Memes/Trends)
+		\item Human Imitation (Memes/Trends) 
 	\end{itemize}
 	\begin{center}
 	\includegraphics[scale=0.15]{images/salt_guy.jpg}
 	\end{center}
 \end{frame}
+
+\begin{frame}
+	\frametitle{Synchronization}
+	The coordination of events to operate a system in unison.\\ 
+	Some examples:
+	\begin{itemize}
+		\item Round of Applause
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Example - Human Grouping}
+\onslide<1->{
+\noindent Rules to Follow:
+\begin{itemize}
+	\item \textbf{Walk} slowly toward center of the group.
+	\item \textbf{Slow down} if you're within two feet of another person.
+	\item \textbf{Stop} if you are within one foot of another person.
+\end{itemize}
+}
+% The movie won't play in a normal .pdf viewer. Okular works.
+\onslide<2->{
+\movie[width=5cm,height=4cm, poster, showcontrols]{}{human_swarm.ogv}}
+
+
+\end{frame}
+
 
 \begin{frame}
 	\frametitle{Collective Behavior}
@@ -132,9 +150,7 @@
 	\begin{itemize}
 		\item The coordinated behavior of animals of the same species and the emergent properties that arise.
 		\pause
-		\item For mathematical purposes, consider a swarm as an emergent behavior with no central coordination that arises due to several simple instinctual rule that animals of a given species follow.
-		\pause
-		\item Other terms we will be using interchangeably with ``collective behavior'': swarm, school(specific to fish), aggregate
+		\item For mathematical purposes, consider a swarm as an emergent behavior with no central coordination.
 	\end{itemize}
 \end{frame}
 
@@ -187,10 +203,10 @@
 				\draw[very thick, gray] (1.5, 3) circle [radius=0.95cm];
 				%%% Cohesion %%%
 				\node[focalfish] (focal2) at (1.5, 3) {};
-				\node[fish, rotate=10] (coh1) at ($(focal2) + (-0.05, 0.4)$) {};
-				\node[fish, rotate=-15] (coh2) at ($(focal2) + (-0.45, 0.2)$) {};
-				\node[fish, rotate=25] (coh3) at ($(focal2) + (-0.4, -0.25)$) {};
-				\node[fish, rotate=-5] (coh4) at ($(focal2) + (-0.1, -0.4)$) {};
+				\node[fish, rotate=10] (coh1) at ($(focal2) + (-0.2, 0.5)$) {};
+				\node[fish, rotate=-15] (coh2) at ($(focal2) + (-0.75, 0.2)$) {};
+				\node[fish, rotate=25] (coh3) at ($(focal2) + (-0.6, -0.25)$) {};
+				\node[fish, rotate=-5] (coh4) at ($(focal2) + (-0.2, -0.5)$) {};
 				\node[fish, rotate=10] (coh5) at ($(focal2) + (-1, 0.4)$) {};
 				\node[fish, rotate=5] (coh6) at ($(focal2) + (-1.05, 0)$) {};
 				\node[fish, rotate=-15] (coh7) at ($(focal2) + (-0.95, -0.65)$) {};
@@ -210,9 +226,9 @@
 				\draw[very thick, gray] (1.5, 1) circle [radius=0.95cm];
 				%%% Separation %%%
 				\node[focalfish] (focal) at (1.5, 1) {};
-				\node[fish, rotate=15] (fish1) at ($(focal) + (-0.25, 0.1)$)  {};
-				\node[fish, rotate=-15] (fish2) at ($(focal) + (0.3, 0.3)$) {};
-				\node[fish, rotate=-35] (fish3) at ($(focal) + (-0.3, -0.6)$) {};
+				\node[fish, rotate=15] (fish1) at ($(focal) + (-0.15, 0.1)$)  {};
+				\node[fish, rotate=-15] (fish2) at ($(focal) + (0.15, 0.2)$) {};
+				\node[fish, rotate=-35] (fish3) at ($(focal) + (-0.2, -0.3)$) {};
 				\node[fish, rotate=20] (fish4) at ($(focal) + (0.8, -0.85)$) {};
 				\node[fish, rotate=-25] (fish5) at ($(focal) + (-0.75, 0.8)$) {};
 			
@@ -284,9 +300,24 @@
 
 \begin{frame}
 	\frametitle{The Attraction and Repulsion Coefficients}
+	\begin{equation*}
+	f(x) = \frac{2}{x^{2}} - \frac{1}{x^{4}}
+	\end{equation*}
 	\begin{figure}
 		\centering
-		\includegraphics[scale=0.5]{images/coefficient_plot.png}
+%		\includegraphics[scale=0.5]{images/coefficient_plot.png}
+\psset{xunit=0.5cm,yunit=0.5cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(0.,-2.8631891087147996)(6.5648188315047395,4.8322794702689515)
+\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=1.,Dy=1.,ticksize=-2pt 0,subticks=2]{->}(0,0)(0.,-2.8631891087147996)(6.5648188315047395,4.8322794702689515)
+\onslide<2->{
+  \psplot[linewidth=1.2pt,linecolor=ufsdxf,plotpoints=200]{6.56481883150474E-6}{6.5648188315047395}{-1.0/x^(4.0)+2.0/x^(2.0)}
+}
+\begin{scriptsize}
+\onslide<2->{
+  \rput[bl](-7.819787819980308,-0.14017714999747297){\ufsdxf{$f$}}
+}
+\end{scriptsize}
+\end{pspicture*}
 	\end{figure}
 \end{frame}
 
@@ -368,13 +399,13 @@
 	At every timestep, the following calculations occur for each particle (let's call it particle $i$):
 	\begin{enumerate}
 		\onslide<2>{
-		\item Calculate $||p_{i} - p_{j}||$}
+		\item Calculate $||p_{i} - p_{j}||$}.
 		\onslide<3>{
-		\item If the $||p_{i} - p_{j}|| <$ SIGHT, use (1) to determine the force between particle $j$ and particle $i$, and sum forces over all particles within SIGHT of particle $i$ ($F_{i_N}$}
+		\item If the $||p_{i} - p_{j}|| <$ SIGHT, use (1) to determine the force between particle $j$ and particle $i$, and sum forces over all particles within SIGHT of particle $i$ ($F_{i_N}$).}
 		\onslide<4>{
 		\item Use $F_{i_N}$ calculated above to update particle $i$'s velocity as follows:
 			\begin{equation*}
-				v_{i} = v_i + a_{i}\cdot dt
+				v_{i} = v_i + F_{i_N}\cdot dt
 			\end{equation*}}
 		\onslide<5>{
 		\item And update particle $i$'s position using: 
