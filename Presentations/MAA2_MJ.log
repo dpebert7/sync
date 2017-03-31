@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.11)  28 MAR 2017 23:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.11)  29 MAR 2017 13:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1334,6 +1334,207 @@ File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 de.tex
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
 )))
+(/usr/share/texlive/texmf-dist/tex/latex/pstricks-add/pstricks-add.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pstricks/pstricks.sty
+Package: pstricks 2015/11/14 v0.62 LaTeX wrapper for `PSTricks' (RN,HV)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pstricks.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/pst-xkey.tex
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks57
+\XKV@tempa@toks=\toks58
+)
+\XKV@depth=\count191
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pst-fp.tex
+`pst-fp' v0.05, 2010/01/17 (hv)
+\pstFP@xs=\count192
+\pstFP@xia=\count193
+\pstFP@xib=\count194
+\pstFP@xfa=\count195
+\pstFP@xfb=\count196
+\pstFP@rega=\count197
+\pstFP@regb=\count198
+\pstFP@regs=\count199
+\pstFP@times=\count266
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks59
+\pgfutil@tempdima=\dimen310
+\pgfutil@tempdimb=\dimen311
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen312
+\pgffor@skip=\dimen313
+\pgffor@stack=\toks60
+\pgffor@toks=\toks61
+)
+\psLoopIndex=\count267
+
+`PSTricks' v2.64b  <2015/14/11> (tvz)
+\pst@dima=\dimen314
+\pst@dimb=\dimen315
+\pst@dimc=\dimen316
+\pst@dimd=\dimen317
+\pst@dimg=\dimen318
+\pst@dimh=\dimen319
+\pst@dimm=\dimen320
+\pst@dimn=\dimen321
+\pst@dimo=\dimen322
+\pst@dimp=\dimen323
+\pst@hbox=\box87
+\pst@ibox=\box88
+\pst@boxg=\box89
+\pst@cnta=\count268
+\pst@cntb=\count269
+\pst@cntc=\count270
+\pst@cntd=\count271
+\pst@cntg=\count272
+\pst@cnth=\count273
+\pst@cntm=\count274
+\pst@cntn=\count275
+\pst@cnto=\count276
+\pst@cntp=\count277
+\@zero=\count278
+\pst@toks=\toks62
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pstricks.con)
+\psunit=\dimen324
+\psxunit=\dimen325
+\psyunit=\dimen326
+\pst@C@@rType=\count279
+\pslinewidth=\dimen327
+\psk@startLW=\dimen328
+\psk@endLW=\dimen329
+\pst@customdefs=\toks63
+\pslinearc=\dimen330
+\pst@symbolStep=\dimen331
+\pst@symbolWidth=\dimen332
+\pst@symbolLinewidth=\dimen333
+\everypsbox=\toks64
+\psframesep=\dimen334
+\pslabelsep=\dimen335
+\sh@wgridXunit=\dimen336
+\sh@wgridYunit=\dimen337
+\pst@shift=\dimen338
+)
+File: pstricks.tex 2015/14/11 v2.64b `PSTricks' (tvz,hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pst-fp.tex)
+File: pst-fp.tex 2015/14/11 v2.64b `PST-fp' (hv)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pst-plot/pst-plot.sty
+Package: pst-plot 2011/06/05 v1.00 LaTeX wrapper for `pst-plot' (HV)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/pst-xkey.sty
+Package: pst-xkey 2005/11/25 v1.6 package wrapper for pst-xkey.tex (HA)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/multido/multido.sty
+Package: multido 2004/05/17 package wrapper for PSTricks `multido.tex', (HV/RN)
+
+
+(/usr/share/texlive/texmf-dist/tex/generic/multido/multido.tex
+ v1.42, 2010/05/14 <tvz>
+\multido@count=\count280
+\multidocount=\count281
+\multido@stuff=\toks65
+)
+File: multido.tex 2010/05/14 v1.42 `multido' (tvz,hv)
+)
+Package: pst-plot 2011/04/13 package wrapper for pst-plot.tex (hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pst-plot/pst-plot.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pst-tools/pst-tools.tex
+`PST-tools' v0.05, 2014/05/12 (hv))  v1.70, 2014/08/23 (tvz,hv)
+\pstRadUnit=\dimen339
+\pstRadUnitInv=\dimen340
+\pst@linecnt=\count282
+\RCD@file=\read2
+\psxlabelsep=\dimen341
+\psylabelsep=\dimen342
+\psk@subticksize=\dimen343
+\pst@xticksizeA=\dimen344
+\pst@xticksizeB=\dimen345
+\pst@xticksizeC=\dimen346
+\pst@yticksizeA=\dimen347
+\pst@yticksizeB=\dimen348
+\pst@yticksizeC=\dimen349
+\@digitcounter=\count283
+\psk@llx=\dimen350
+\psk@lly=\dimen351
+\psk@urx=\dimen352
+\psk@ury=\dimen353
+\pst@xunit=\dimen354
+\pst@yunit=\dimen355
+)
+File: pst-plot.tex 2014/08/23 1.70 `pst-plot' (tvz,hv)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pst-node/pst-node.sty
+Package: pst-node 2012/09/18 v1.01 LaTeX wrapper for `pst-node' (HV)
+Package: pst-node 2010/04/22 package wrapper for pst-node.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/pst-node/pst-node.tex
+ v1.35, 2014/08/04
+\psrow=\count284
+\pscol=\count285
+\psmatrixcnt=\count286
+\psrowsep=\skip65
+\pscolsep=\skip66
+\pst@args=\count287
+\num@pts=\count288
+\pst@argcnt=\count289
+)
+File: pst-node.tex 2014/08/04 1.35 `pst-node' (tvz,hv)
+) (/usr/share/texlive/texmf-dist/tex/latex/pst-3d/pst-3d.sty
+Package: pst-3d 2009/07/28 package wrapper for pst-3d.tex (hv)
+(/usr/share/texlive/texmf-dist/tex/generic/pst-3d/pst-3d.tex
+`PST-3d' v1.11, 2010/02/14 (tvz))
+File: pst-3d.tex 2010/02/14 v1.11 `PST-3d' (hv)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pst-math/pst-math.sty
+Package: pst-math 2014/07/30 package wrapper for PSTricks pst-math.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/pst-math/pst-math.tex
+`pst-math' v0.63 , (CJ,hv))
+File: pst-math.tex 2014/07/30 v0.63 `PST-math' (hv)
+)
+Package: pstricks-add 2010/02/11 v. 0.14 package wrapper for pstricks-add.tex (
+hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks-add/pstricks-add.tex
+`pstricks-add' v3.79, 2016/02/09 (dr,hv)
+\psparallelogramsep=\dimen356
+\pshooklength=\dimen357
+\pshookwidth=\dimen358
+\pst@cntC=\count290
+\chart@ColorIndex=\dimen359
+\chart@ColorStep=\dimen360
+\pst@chartHeight=\dimen361
+\pst@chartStackDepth=\dimen362
+\pst@chartStackWidth=\dimen363
+\chart@Toggle=\count291
+\psVectorCtr=\count292
+)
+File: pstricks-add.tex 2016/02/09 v3.79 `PSTricks-add' (hv)
+Package pstricks-add Info: Local config file pstricks-add.cfg used on input lin
+e 20.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pstricks-add/pstricks-add.cfg
+File: pstricks-add.cfg 2005/01/10 v0.1 addtional user stuff (hv)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
+\CommentStream=\write5
+
+Excluding comment 'comment')
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
@@ -1355,48 +1556,36 @@ File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.
 tex
 File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
-\arrowsize=\dimen310
+\arrowsize=\dimen364
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeCopenha
 gen.sty
-Package: beamerthemeCopenhagen 2010/06/17  (rcs-revision d02a7cf4d8ae)
-
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemesp
-lit.sty
-Package: beamerouterthemesplit 2012/10/16  (rcs-revision 51a8c72084af)
-)
+lit.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemero
-unded.sty
-Package: beamerinnerthemerounded 2010/06/17  (rcs-revision d02a7cf4d8ae)
-)
+unded.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemewh
-ale.sty
-Package: beamercolorthemewhale 2010/06/17  (rcs-revision d02a7cf4d8ae)
-)
+ale.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemeor
-chid.sty
-Package: beamercolorthemeorchid 2010/06/17  (rcs-revision d02a7cf4d8ae)
-))
+chid.sty))
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemest
-ructure.sty
-Package: beamercolorthemestructure 2010/06/17  (rcs-revision d02a7cf4d8ae)
-) (./MAA2_MJ.aux)
+ructure.sty) (./MAA2_MJ.aux)
 \openout1 = `MAA2_MJ.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1434,17 +1623,17 @@ LaTeX Font Info:    ... okay on input line 74.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count191
-\scratchdimen=\dimen311
-\scratchbox=\box87
-\nofMPsegments=\count192
-\nofMParguments=\count193
-\everyMPshowfont=\toks57
-\MPscratchCnt=\count194
-\MPscratchDim=\dimen312
-\MPnumerator=\count195
-\makeMPintoPDFobject=\count196
-\everyMPtoPDFconversion=\toks58
+\scratchcounter=\count293
+\scratchdimen=\dimen365
+\scratchbox=\box90
+\nofMPsegments=\count294
+\nofMParguments=\count295
+\everyMPshowfont=\toks66
+\MPscratchCnt=\count296
+\MPscratchDim=\dimen366
+\MPnumerator=\count297
+\makeMPintoPDFobject=\count298
+\everyMPtoPDFconversion=\toks67
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1461,8 +1650,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box88
-Package hyperref Info: Link coloring OFF on input line 74.
+\AtBeginShipoutBox=\box91
+Package hyperref Info: Link coloring OFF on input line 76.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1470,58 +1659,58 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count197
+\c@section@level=\count299
 )
-LaTeX Info: Redefining \ref on input line 74.
-LaTeX Info: Redefining \pageref on input line 74.
-LaTeX Info: Redefining \nameref on input line 74.
+LaTeX Info: Redefining \ref on input line 76.
+LaTeX Info: Redefining \pageref on input line 76.
+LaTeX Info: Redefining \nameref on input line 76.
 
 (./MAA2_MJ.out) (./MAA2_MJ.out)
-\@outlinefile=\write5
-\openout5 = `MAA2_MJ.out'.
+\@outlinefile=\write6
+\openout6 = `MAA2_MJ.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 74.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 76.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 74.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 76.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 74.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 74.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 76.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 74.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 74.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 74.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 76.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 74.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 74.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 74.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 76.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 74.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 74.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 74.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 76.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 74.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 74.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 76.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 74.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 76.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 74.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 74.
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 74.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 74.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 74.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 76.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 74.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 76.
 
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-bas
 ic-dictionary/translator-basic-dictionary-English.dict
@@ -1547,7 +1736,7 @@ Dictionary: translator-numbers-dictionary, Language: English
 orem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 74.
+LaTeX Info: Redefining \includegraphics on input line 76.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -1556,209 +1745,202 @@ Package caption Info: End \AtBeginDocument code.
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.13} into 
 your preamble.
- on input line 74.
+ on input line 76.
 
 (./MAA2_MJ.nav) <images/tsumath_copy.png, id=15, 158.0304pt x 112.7412pt>
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 82.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 84.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 82.
+(Font)              size <5> substituted on input line 84.
 
 [1
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/tsumath_copy.png>
-]
+
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!
+Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./
+images/tsumath_copy.png>]
 File: images/tsumath_copy.png Graphic file (type png)
  <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 92.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 93.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [2
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
- <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 100.
-(pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
- [3
-
-]
-File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 113.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 105.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
 
-<images/geese_flock.jpg, id=105, 152.0079pt x 81.906pt>
+<images/geese_flock.jpg, id=78, 152.0079pt x 81.906pt>
 File: images/geese_flock.jpg Graphic file (type jpg)
 
 <use images/geese_flock.jpg>
-Package pdftex.def Info: images/geese_flock.jpg used on input line 113.
+Package pdftex.def Info: images/geese_flock.jpg used on input line 105.
 (pdftex.def)             Requested size: 174.80771pt x 94.19115pt.
- [4
+ [3
 
  <./images/geese_flock.jpg>]
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 125.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 117.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
 
-<images/salt_guy.jpg, id=133, 1284.8pt x 722.7pt>
+<images/salt_guy.jpg, id=105, 1284.8pt x 722.7pt>
 File: images/salt_guy.jpg Graphic file (type jpg)
  <use images/salt_guy.jpg>
-Package pdftex.def Info: images/salt_guy.jpg used on input line 125.
+Package pdftex.def Info: images/salt_guy.jpg used on input line 117.
 (pdftex.def)             Requested size: 192.71169pt x 108.40031pt.
 
-[5
+[4
 
  <./images/salt_guy.jpg>]
 File: images/tsumath_copy.png Graphic file (type png)
  <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 139.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 126.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
+ [5
 
-<images/fish_schoo.jpg, id=160, 2007.5pt x 1254.6875pt>
-File: images/fish_schoo.jpg Graphic file (type jpg)
-
-<use images/fish_schoo.jpg>
-Package pdftex.def Info: images/fish_schoo.jpg used on input line 139.
-(pdftex.def)             Requested size: 100.38087pt x 62.73804pt.
- [6
-
- <./images/fish_schoo.jpg>]
+]
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 139.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 143.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
-File: images/fish_schoo.jpg Graphic file (type jpg)
- <use images/fish_schoo.jpg>
-Package pdftex.def Info: images/fish_schoo.jpg used on input line 139.
-(pdftex.def)             Requested size: 100.38087pt x 62.73804pt.
+ [6
+
+]
+File: images/tsumath_copy.png Graphic file (type png)
+ <use images/tsumath_copy.png>
+Package pdftex.def Info: images/tsumath_copy.png used on input line 143.
+(pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [7
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 139.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 156.
+(pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
+
+<images/fish_schoo.jpg, id=215, 2007.5pt x 1254.6875pt>
+File: images/fish_schoo.jpg Graphic file (type jpg)
+
+<use images/fish_schoo.jpg>
+Package pdftex.def Info: images/fish_schoo.jpg used on input line 156.
+(pdftex.def)             Requested size: 100.38087pt x 62.73804pt.
+ [8
+
+ <./images/fish_schoo.jpg>]
+File: images/tsumath_copy.png Graphic file (type png)
+
+<use images/tsumath_copy.png>
+Package pdftex.def Info: images/tsumath_copy.png used on input line 156.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
 File: images/fish_schoo.jpg Graphic file (type jpg)
  <use images/fish_schoo.jpg>
-Package pdftex.def Info: images/fish_schoo.jpg used on input line 139.
+Package pdftex.def Info: images/fish_schoo.jpg used on input line 156.
 (pdftex.def)             Requested size: 100.38087pt x 62.73804pt.
- [8
+ [9
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 149.
-(pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
- [9
-
-]
-File: images/tsumath_copy.png Graphic file (type png)
- <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 229.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 166.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [10
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
-
-<use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 229.
+ <use images/tsumath_copy.png>
+Package pdftex.def Info: images/tsumath_copy.png used on input line 246.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [11
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
- <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 229.
+
+<use images/tsumath_copy.png>
+Package pdftex.def Info: images/tsumath_copy.png used on input line 246.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [12
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
-
-<use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 229.
+ <use images/tsumath_copy.png>
+Package pdftex.def Info: images/tsumath_copy.png used on input line 246.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [13
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
- <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 258.
+
+<use images/tsumath_copy.png>
+Package pdftex.def Info: images/tsumath_copy.png used on input line 246.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [14
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
+ <use images/tsumath_copy.png>
+Package pdftex.def Info: images/tsumath_copy.png used on input line 275.
+(pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
+ [15
+
+]
+File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 283.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 300.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 283.
+LaTeX Font Info:    Try loading font information for U+msa on input line 300.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 283.
+LaTeX Font Info:    Try loading font information for U+msb on input line 300.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [15
+) [16
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 283.
-(pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
- [16
-
-]
-File: images/tsumath_copy.png Graphic file (type png)
- <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 283.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 300.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [17
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
-
-<use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 291.
+ <use images/tsumath_copy.png>
+Package pdftex.def Info: images/tsumath_copy.png used on input line 300.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
+ [18
 
-<images/coefficient_plot.png, id=482, 2932.7166pt x 1562.4774pt>
-File: images/coefficient_plot.png Graphic file (type png)
-
-<use images/coefficient_plot.png>
-Package pdftex.def Info: images/coefficient_plot.png used on input line 291.
-(pdftex.def)             Requested size: 1466.35474pt x 781.2368pt.
-
-Overfull \hbox (1159.06487pt too wide) in paragraph at lines 291--291
- [] 
- []
-
-
-Overfull \vbox (578.76622pt too high) detected at line 291
- []
-
-[18
-
- <./images/coefficient_plot.png>]
+]
+Excluding 'comment' comment.
 File: images/tsumath_copy.png Graphic file (type png)
  <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 355.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 390.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [19
 
@@ -1766,14 +1948,14 @@ Package pdftex.def Info: images/tsumath_copy.png used on input line 355.
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 364.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 399.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [20
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
  <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 364.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 399.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [21
 
@@ -1781,14 +1963,14 @@ Package pdftex.def Info: images/tsumath_copy.png used on input line 364.
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 387.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 422.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [22
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
  <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 387.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 422.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [23
 
@@ -1796,14 +1978,14 @@ Package pdftex.def Info: images/tsumath_copy.png used on input line 387.
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 387.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 422.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [24
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
  <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 387.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 422.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [25
 
@@ -1811,14 +1993,14 @@ Package pdftex.def Info: images/tsumath_copy.png used on input line 387.
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 387.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 422.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [26
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
  <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 394.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 429.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [27
 
@@ -1826,14 +2008,14 @@ Package pdftex.def Info: images/tsumath_copy.png used on input line 394.
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 401.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 436.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [28
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
  <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 408.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 443.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [29
 
@@ -1841,14 +2023,14 @@ Package pdftex.def Info: images/tsumath_copy.png used on input line 408.
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 419.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 454.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [30
 
 ]
 File: images/tsumath_copy.png Graphic file (type png)
  <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 443.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 478.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [31
 
@@ -1856,25 +2038,25 @@ Package pdftex.def Info: images/tsumath_copy.png used on input line 443.
 File: images/tsumath_copy.png Graphic file (type png)
 
 <use images/tsumath_copy.png>
-Package pdftex.def Info: images/tsumath_copy.png used on input line 451.
+Package pdftex.def Info: images/tsumath_copy.png used on input line 492.
 (pdftex.def)             Requested size: 63.21103pt x 45.09567pt.
  [32
 
 ]
-\tf@nav=\write6
-\openout6 = `MAA2_MJ.nav'.
+\tf@nav=\write7
+\openout7 = `MAA2_MJ.nav'.
 
-\tf@toc=\write7
-\openout7 = `MAA2_MJ.toc'.
+\tf@toc=\write8
+\openout8 = `MAA2_MJ.toc'.
 
-\tf@snm=\write8
-\openout8 = `MAA2_MJ.snm'.
+\tf@snm=\write9
+\openout9 = `MAA2_MJ.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 453.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 453.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 494.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 494.
  (./MAA2_MJ.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 453.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 453.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 494.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 494.
 Package rerunfilecheck Info: File `MAA2_MJ.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1882,33 +2064,39 @@ Package rerunfilecheck Info: File `MAA2_MJ.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 453.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 494.
  ) 
 Here is how much of TeX's memory you used:
- 32384 strings out of 494953
- 768804 string characters out of 6180977
- 961083 words of memory out of 5000000
- 34944 multiletter control sequences out of 15000+600000
- 16100 words of font info for 59 fonts, out of 8000000 for 9000
+ 35910 strings out of 494953
+ 825592 string characters out of 6180977
+ 1084113 words of memory out of 5000000
+ 38373 multiletter control sequences out of 15000+600000
+ 16268 words of font info for 60 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 54i,16n,77p,703b,878s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmssi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb>
-Output written on MAA2_MJ.pdf (32 pages, 1228010 bytes).
+ 54i,16n,77p,728b,915s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Navigation33} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation34} has been referenced but does not exis
+t, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ssi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on MAA2_MJ.pdf (32 pages, 662776 bytes).
 PDF statistics:
- 947 PDF objects out of 1000 (max. 8388607)
- 874 compressed objects within 9 object streams
- 65 named destinations out of 1000 (max. 500000)
- 84 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 953 PDF objects out of 1000 (max. 8388607)
+ 878 compressed objects within 9 object streams
+ 67 named destinations out of 1000 (max. 500000)
+ 67 words of extra memory for PDF output out of 10000 (max. 10000000)
 

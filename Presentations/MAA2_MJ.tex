@@ -12,6 +12,7 @@
 \usepackage{multimedia} % For movies
 \usepackage{pgfplots} % For generating random numbers for tikz 
 \usepackage{pstricks-add}
+\usepackage{comment}
 
 \usetikzlibrary{calc}
 \usetikzlibrary{shapes.geometric}
@@ -136,9 +137,9 @@
 }
 % The movie won't play in a normal .pdf viewer. Okular works.
 \onslide<2->{
-\movie[width=5cm,height=4cm, poster, showcontrols]{}{human_swarm.ogv}}
-
-
+	\centering
+	\movie[width=5cm,height=4cm, poster, showcontrols]{}{human_swarm.ogv} 
+}
 \end{frame}
 
 
@@ -298,6 +299,8 @@
 	\end{itemize}
 \end{frame}
 
+
+\begin{comment}
 \begin{frame}
 	\frametitle{The Attraction and Repulsion Coefficients}
 	\begin{equation*}
@@ -306,20 +309,21 @@
 	\begin{figure}
 		\centering
 %		\includegraphics[scale=0.5]{images/coefficient_plot.png}
-\psset{xunit=0.5cm,yunit=0.5cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
-\begin{pspicture*}(0.,-2.8631891087147996)(6.5648188315047395,4.8322794702689515)
-\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=1.,Dy=1.,ticksize=-2pt 0,subticks=2]{->}(0,0)(0.,-2.8631891087147996)(6.5648188315047395,4.8322794702689515)
-\onslide<2->{
-  \psplot[linewidth=1.2pt,linecolor=ufsdxf,plotpoints=200]{6.56481883150474E-6}{6.5648188315047395}{-1.0/x^(4.0)+2.0/x^(2.0)}
-}
-\begin{scriptsize}
-\onslide<2->{
-  \rput[bl](-7.819787819980308,-0.14017714999747297){\ufsdxf{$f$}}
-}
-\end{scriptsize}
-\end{pspicture*}
+		\psset{xunit=0.5cm,yunit=0.5cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+		\begin{pspicture*}(0.,-2.8631891087147996)(6.5648188315047395,4.8322794702689515)
+			\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=1.,Dy=1.,ticksize=-2pt 0,subticks=2]{->}(0,0)(0.,-2.8631891087147996)(6.5648188315047395,4.8322794702689515)
+			\onslide<2->{
+			  \psplot[linewidth=1.2pt,linecolor=ufsdxf,plotpoints=200]{6.56481883150474E-6}{6.5648188315047395}{-1.0/x^(4.0)+2.0/x^(2.0)}
+			}
+			\begin{scriptsize}
+				\onslide<2->{
+				  \rput[bl](-7.819787819980308,-0.14017714999747297){\ufsdxf{$f$}}
+				}
+			\end{scriptsize}
+		\end{pspicture*}
 	\end{figure}
 \end{frame}
+\end{comment}
 
 \begin{frame}
 	\frametitle{Directional Alignment of Fish $i$}
@@ -476,9 +480,15 @@
 \begin{frame}
 	\frametitle{THANK YOU} 
 	Thank you to Dr. Wyatt and the Particle Modelling Lab for their time and resources.
+	\vspace{20 pt}
 	\begin{center}
-		\Huge{QUESTIONS?}
+		{\Huge QUESTIONS?} \\
 	\end{center}
+	\vspace{20 pt}	
+	%\textbf{Contact:} \\
+	\texttt{mikaela.jordan@go.tarleton.edu} \\
+	\texttt{david.ebert@go.tarleton.edu} \\
+	\texttt{github.com/dpebert7/sync} \\
 \end{frame}
 
 \end{document}
