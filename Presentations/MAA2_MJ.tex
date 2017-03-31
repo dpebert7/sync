@@ -60,9 +60,9 @@
 
 \tikzset{
 	fish/.style={
-		draw=SeaGreen,
+		draw=MidnightBlue,
 		shape=isosceles triangle,
-		fill=SeaGreen!30,
+		fill=MidnightBlue!50,
 		minimum height= 0.15cm, 
 		minimum width= 0.1cm,
 		shape border rotate=90,
@@ -125,20 +125,17 @@
 \end{frame}
 
 
-\begin{frame}{Example - Human Grouping}
-\onslide<1->{
+\begin{frame}
+	\frametitle{Example - Human Grouping}
 \noindent Rules to Follow:
 \begin{itemize}
 	\item \textbf{Walk} slowly toward center of the group.
 	\item \textbf{Slow down} if you're within two feet of another person.
 	\item \textbf{Stop} if you are within one foot of another person.
 \end{itemize}
-}
+
 % The movie won't play in a normal .pdf viewer. Okular works.
-\onslide<2->{
-\movie[width=5cm,height=4cm, poster, showcontrols]{}{human_swarm.ogv}}
-
-
+\movie[width=5cm,height=4cm, poster, showcontrols]{}{human_swarm.ogv}
 \end{frame}
 
 
@@ -157,10 +154,10 @@
 \begin{frame}
 	\frametitle{Why Do We Care?}
 	\begin{itemize}
-			\item Learning C/CUDA
-			\item Applying mathematical models to real life phenomenon
-			\item How will environmental factors affect the animal aggregate
-			\item How animal aggregates will affect the environment 
+		\item Learning C/CUDA
+		\item Applying mathematical models to real life phenomenon
+		\item How will environmental factors affect the animal aggregate
+		\item How animal aggregates will affect the environment 
 	\end{itemize}
 \end{frame}
 
@@ -171,31 +168,31 @@
 	Our model represents each fish adhering to the following three rules:}
 	\begin{itemize}
 		\onslide<2->{
-		\item \textbf{Alignment}}
+			\item \textbf{Alignment}}
 		\onslide<3->{
-		\item \textbf{Cohesion}} 
+			\item \textbf{Cohesion}} 
 		\onslide<4->{
-		\item \textbf{Separation}}
+			\item \textbf{Separation}}
 %		Avoid collisions with neighbors
 	\end{itemize}
 	\begin{figure}
 		\centering
 		\begin{tikzpicture}
 			\onslide<2>{
-			\draw[ultra thick, TarletonPurple] (0, 4) rectangle (3, 6);
-			\draw[very thick, gray] (1.5, 5) circle [radius=0.95cm];
-			%%% Alignment %%%
-			
-			\node[focalfish] (focal1) at (1.5, 5) {};
-			\node[fish, rotate=15] (align1) at ($(focal1) + (-0.3, 0.3)$) {};
-			\node[fish, rotate=25] (align2) at ($(focal1) + (0.3, 0.4)$) {};
-			\node[fish, rotate=10] (align3) at ($(focal1) + (0.5, 0.1)$) {};
-			\node[fish, rotate=30] (align4) at ($(focal1) + (0.2, -0.35)$) {};
-			\node[fish, rotate=5] (align5) at ($(focal1) + (-0.3, -0.4)$) {};
-			\node[fish, rotate=27] (align6) at ($(focal1) + (-0.45, -0.1)$) {};
-			
-			\draw[Magenta] (focal1.north) -- ($(focal1.north) + (0, 0.15)$);
-			\draw[SeaGreen] (focal1.north) -- ($(focal1.north) + (-0.07, 0.14)$);
+				\draw[ultra thick, TarletonPurple] (0, 4) rectangle (3, 6);
+				\draw[very thick, gray] (1.5, 5) circle [radius=0.95cm];
+				%%% Alignment %%%
+				
+				\node[focalfish] (focal1) at (1.5, 5) {};
+				\node[fish, rotate=15] (align1) at ($(focal1) + (-0.3, 0.3)$) {};
+				\node[fish, rotate=25] (align2) at ($(focal1) + (0.3, 0.4)$) {};
+				\node[fish, rotate=10] (align3) at ($(focal1) + (0.5, 0.1)$) {};
+				\node[fish, rotate=30] (align4) at ($(focal1) + (0.2, -0.35)$) {};
+				\node[fish, rotate=5] (align5) at ($(focal1) + (-0.3, -0.4)$) {};
+				\node[fish, rotate=27] (align6) at ($(focal1) + (-0.45, -0.1)$) {};
+				
+				\draw[Magenta] (focal1.north) -- ($(focal1.north) + (0, 0.15)$);
+				\draw[SeaGreen] (focal1.north) -- ($(focal1.north) + (-0.07, 0.14)$);
 			}
 			
 			\onslide<3>{
@@ -244,31 +241,32 @@
 	\end{multicols}
 \end{frame}
 
-%\begin{frame}
-%	\frametitle{Coupling}
-%	Coupled oscillators are systems of masses connected by springs.
-%	\begin{center}
-%		\includegraphics[scale=0.4]{images/coupled_oscillators}
-%	\end{center}
-%\end{frame}
-
 \begin{frame}
 	\frametitle{The Mathematics}
 	\begin{itemize}
-		\item Lagrangian Algorithm
-		\item Metric distance model
+		\onslide<1>{
+		\item Lagrangian Algorithm}
+		\onslide<2->{
+		\item Metric distance model}
 	\end{itemize}
 	\begin{figure}
 		\centering
 		\begin{tikzpicture}[scale=0.5]
-			\filldraw[fill=TarletonPurple!30, draw=TarletonPurple] (0, 0) circle [radius=3cm];
-			\filldraw[fill=TarletonPurple!30, draw=TarletonPurple] (0, 0) circle [radius=2cm];
-			\filldraw[fill=TarletonPurple!30, draw=TarletonPurple] (0, 0) circle [radius=1cm];
-			\fill[TarletonPurple] (0, 0) circle [radius=0.25cm];
+			\onslide<5->{
+			\filldraw[fill=Maroon!30, draw=Maroon] (0, 0) circle [radius=4.5cm];}
+			\onslide<4->{
+			\filldraw[fill=OliveGreen!30, draw=Olive Green] (0, 0) circle [radius=3cm];}
+			\onslide<3->{
+			\filldraw[fill=TarletonPurple!30, draw=TarletonPurple] (0, 0) circle [radius=1.5cm];}
+			\onslide<3->{
+			\fill[TarletonPurple] (0, 0) circle [radius=0.25cm];}
 			
-			\node at (0, 2.5) {\tiny{\textbf{Attraction}}};
-			\node at (0, 1.5) {\tiny{\textbf{Orientation}}};
-			\node at (0, 0.5) {\tiny{\textbf{Repulsion}}};
+			\onslide<5->{
+			\node at (0, 3.75) {\scriptsize{\textbf{Attraction}}};}
+			\onslide<4->{
+			\node at (0, 2.25) {\scriptsize{\textbf{Orientation}}};}
+			\onslide<3->{
+			\node at (0, 0.75) {\scriptsize{\textbf{Repulsion}}};}
 		\end{tikzpicture}
 	\end{figure}
 \end{frame}
@@ -281,18 +279,18 @@
 		\item Attraction between a fish $i$ and neighbor $j$ :}
 			\onslide<1->{
 			\begin{equation*}
-				A = C_{a} \frac{p_{j} - p_{i}}{d^{2}}
+				\textcolor{Maroon}{A = C_{a} \frac{p_{j} - p_{i}}{d^{2}}}
 			\end{equation*}}
 		\onslide<2>{
 		\item Repulsion between fish $i$ and neighbor $j$:}
 			\onslide<2->{
 			\begin{equation*}
-				R = -C_{r} \frac{p_{j} - p_{i}}{d^{4}}	
+				\textcolor{TarletonPurple}{R = -C_{r} \frac{p_{j} - p_{i}}{d^{4}}}	
 			\end{equation*}}
 		\onslide<3>{
 		\item Overall Attraction:
 			\begin{equation*}
-				F_{A} = C_{a} \frac{p_{j} - p_{i}}{d^{2}} - C_{r} \frac{p_{j} - p_{i}}{d^{4}}
+				F_{A} = \textcolor{Maroon}{C_{a} \frac{p_{j} - p_{i}}{d^{2}}} \textcolor{TarletonPurple}{- C_{r} \frac{p_{j} - p_{i}}{d^{4}}}
 			\end{equation*}}
 
 	\end{itemize}
@@ -305,19 +303,26 @@
 	\end{equation*}
 	\begin{figure}
 		\centering
-%		\includegraphics[scale=0.5]{images/coefficient_plot.png}
-\psset{xunit=0.5cm,yunit=0.5cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
-\begin{pspicture*}(0.,-2.8631891087147996)(6.5648188315047395,4.8322794702689515)
-\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=1.,Dy=1.,ticksize=-2pt 0,subticks=2]{->}(0,0)(0.,-2.8631891087147996)(6.5648188315047395,4.8322794702689515)
-\onslide<2->{
-  \psplot[linewidth=1.2pt,linecolor=ufsdxf,plotpoints=200]{6.56481883150474E-6}{6.5648188315047395}{-1.0/x^(4.0)+2.0/x^(2.0)}
-}
-\begin{scriptsize}
-\onslide<2->{
-  \rput[bl](-7.819787819980308,-0.14017714999747297){\ufsdxf{$f$}}
-}
-\end{scriptsize}
-\end{pspicture*}
+		\includegraphics[scale=1]{images/coeff_plot2}
+%		\begin{tikzpicture}
+%			\begin{axis}[
+%				axis lines = left,
+%				xlabel = {Distance},
+%				ylabel = {Attraction},
+%				xmin = 0,
+%				xmax = 10,
+%				ymin = -10,
+%				ymax = 10
+%			]
+%			\addplot[
+%				domain=0.1:10,
+%				samples=100,
+%				color=TarletonPurple
+%			]
+%			{(2/(x^{2}) - (1/x^{4})}
+%			\addlegendentry{\frac{2}{x^{2}} - \frac{1}{x^4}}}
+%			\end{axis}
+%		\end{tikzpicture}
 	\end{figure}
 \end{frame}
 
@@ -327,7 +332,7 @@
 	\begin{figure}
 		\centering
 		\begin{tikzpicture}[focalfish/.style={circle, minimum size=1mm, fill=TarletonPurple}, fish/.style={circle, minimum size=1mm,
-			fill=Magenta}]
+			fill=Magenta}, outfish/.style={circle, minimum size=1mm, fill=SkyBlue}]
 			\draw[dashed, gray] (0, 0) circle [radius=2cm];
 			
 			\node[focalfish] (focal) at (0, 0) {};
@@ -346,12 +351,12 @@
 			\node[fish] (infish6) at (-0.5, -1.7) {};
 			\node[fish] (infish7) at (0.1, -1.25) {};
 			\node[fish] (infish8) at (0.45, -0.75) {};
-%			\node[fish] (fish9) at (0.5, 0.75) {};
-%			\node[fish] (fish10) at (0.5, 0.75) {};
-%			\node[fish] (fish11) at (0.5, 0.75) {};
-%			\node[fish] (fish12) at (0.5, 0.75) {};
-%			\node[fish] (fish13) at (0.5, 0.75) {};
-%			\node[fish] (fish14) at (0.5, 0.75) {};
+			\node[outfish] (fish9) at (-1.5, 2) {};
+			\node[outfish] (fish10) at (-1.75, -2.12) {};
+			\node[outfish] (fish11) at (2, 1.5) {};
+			\node[outfish] (fish12) at (2.12, -.75) {};
+%			\node[fish] (fish13) at (0.5, 0.75) {13};
+%			\node[fish] (fish14) at (0.5, 0.75) {14};
 			
 			\draw[->] (infish1.north) -- ($(infish1.north) + (0.25, 0.5)$);
 			\draw[->] (infish2.north) -- ($(infish2.north) + (-0.125, 0.5)$);
@@ -362,33 +367,37 @@
 			\draw[->] (infish7.north) -- ($(infish7.north) + (-0.3, 0.5)$);
 			\draw[->] (infish8.north) -- ($(infish8.north) + (0.4, 0.5)$);
 			
-			\draw[dotted, gray] ($(focal.north) + (-0.1, 0.4)$) -- (infish4.north);
+			\onslide<2-4>{
+			\draw[dotted,] ($(focal.north) + (-0.1, 0.4)$) -- (infish4.north);
 			\draw[->] ($(focal.north) +(-0.1, 0.4)$) -- ($(focal.north) +(-0.1, 0.4) + (-0.25, .5)$);
-			\draw[dotted, gray] ($(focal.north) +(-0.1, 0.4) + (-0.25, .5)$) -- ($(infish4.north) + (-0.25, 0.5)$);
-			
-			\draw[dotted, gray] ($(focal.north) +(-0.35, 0.9)$) -- (infish3.north);
+			\draw[dotted] ($(focal.north) +(-0.1, 0.4) + (-0.25, .5)$) -- ($(infish4.north) + (-0.25, 0.5)$);}
+			\onslide<3-4>{
+			\draw[dotted] ($(focal.north) +(-0.35, 0.9)$) -- (infish3.north);
 			\draw[->] ($(focal.north) + (-0.35, 0.9)$) -- ($(focal.north) + (-0.35, 0.9) + (0.5, 0.5)$);
-			\draw[dotted, gray] ($(focal.north) + (0.15, 1.4)$) -- ($(infish3.north) + (0.5, 0.5)$);
+			\draw[dotted] ($(focal.north) + (0.15, 1.4)$) -- ($(infish3.north) + (0.5, 0.5)$);}
+			\onslide<4>{
 			\draw[->] ($(focal.north) + (0.15, 1.4)$) --  ($(focal.north) + (0.15, 1.4) + (0.25, 0.5)$);
 			\draw[->] ($(focal.north) + (0.4, 1.9)$) -- ($(focal.north) + (0.4, 1.9) + (-0.125, 0.5)$);
 			\draw[->] ($(focal.north) + (0.275, 2.4)$) -- ($(focal.north) + (0.275, 2.4) + (0.1, 0.5)$);
 			\draw[->] ($(focal.north) + (0.375, 2.9)$) -- ($(focal.north) + (0.375, 2.9) + (-0.1, 0.5)$);
 			\draw[->] ($(focal.north) + (0.275, 3.4)$) -- ($(focal.north) +  (0.275, 3.4) + (-0.3, 0.5)$);
-			\draw[->] ($(focal.north) + (-0.025, 3.9)$) -- ($(focal.north) + (-0.025, 3.9) + (0.4, 0.5)$);
+			\draw[->] ($(focal.north) + (-0.025, 3.9)$) -- ($(focal.north) + (-0.025, 3.9) + (0.4, 0.5)$);}
 			
-			\draw[->, thick, dashed] (focal.north) -- ($(focal.north) + (0.375, 4.4)$);
+			\onslide<5->{
+			\draw[->, thick, dashed] (focal.north) -- ($(focal.north) + (0.375, 4.4)$);}
 		\end{tikzpicture}
 	\end{figure}
+	\onslide<6->{
 	\begin{equation*}
-		F_{D_i} = \sum\limits_{j=1}^{N}\frac{v_{j}}{|| p_{i} - p_{j}||}
-	\end{equation*}
+		F_{D_i} = \textcolor{OliveGreen}{\sum\limits_{j=1}^{N}\frac{v_{j}}{|| p_{i} - p_{j}||}}
+	\end{equation*}}
 	\end{multicols}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Total Force on Fish $i$ From All Neighbors}
 	\begin{equation}
-		F_{i_N} = \sum\limits_{j=1}^{N}\bigg( W_{a}\big( C_{a}\frac{p_{j} - p_{i}}{d^{2}} - C_{r}\frac{p_{j} - p_{i}}{d^{4}} \big) + W_{d} \big(\frac{v_{j}}{||p_{i} - p_{j}||}\big) \bigg)
+		F_{i_N} = \sum\limits_{j=1}^{N}\bigg( W_{a}\big( \textcolor{Maroon}{C_{a}\frac{p_{j} - p_{i}}{d^{2}}} \textcolor{TarletonPurple}{- C_{r}\frac{p_{j} - p_{i}}{d^{4}}} \big) + W_{d} \big(\textcolor{OliveGreen}{\frac{v_{j}}{||p_{i} - p_{j}||}\big) \bigg)}
 	\end{equation}
 	\pause 
 	And, acceleration of each fish is the same as our force (taking each mass to be 1).

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.5.24)  29 MAR 2017 12:59
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.5.24)  30 MAR 2017 21:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1168,10 +1168,10 @@ File: images/tsumath_copy.png Graphic file (type QTm)
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
  <use  "images/tsumath_copy.png" >
-./MAA2_MJ.tex:142: Undefined control sequence.
+./MAA2_MJ.tex:139: Undefined control sequence.
 <argument> \pdfmark 
                     [{\box \@tempboxa }]{pdfmark=/ANN,Subtype=/Movie,Movie=<...
-l.142 \end{frame}
+l.139 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1179,30 +1179,30 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MAA2_MJ.tex:142: Missing $ inserted.
+./MAA2_MJ.tex:139: Missing $ inserted.
 <inserted text> 
                 $
-l.142 \end{frame}
+l.139 \end{frame}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 142.
+LaTeX Font Info:    Try loading font information for U+msa on input line 139.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 142.
+LaTeX Font Info:    Try loading font information for U+msb on input line 139.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input line 142.
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input line 139.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 )
-./MAA2_MJ.tex:142: Extra }, or forgotten $.
+./MAA2_MJ.tex:139: Extra }, or forgotten $.
 <argument> ...=(\mm@label ), Border={0 0 \mm@bw }}
                                                   
-l.142 \end{frame}
+l.139 \end{frame}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1210,10 +1210,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-./MAA2_MJ.tex:142: Extra }, or forgotten $.
+./MAA2_MJ.tex:139: Extra }, or forgotten $.
 \\movie ...the \pdflastobj \space 0 R>>}}\fi \fi }
                                                   
-l.142 \end{frame}
+l.139 \end{frame}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1221,23 +1221,23 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-./MAA2_MJ.tex:142: Missing $ inserted.
+./MAA2_MJ.tex:139: Missing $ inserted.
 <inserted text> 
                 $
-l.142 \end{frame}
+l.139 \end{frame}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (43.51106pt too wide) in paragraph at lines 142--142
-\OT1/cmss/m/n/10.95 [[]]pdfmark=/ANN,Subtype=/Movie,Movie=<< 
+Overfull \hbox (43.51106pt too wide) in paragraph at lines 139--139
+[]\OT1/cmss/m/n/10.95 [[]]pdfmark=/ANN,Subtype=/Movie,Movie=<< 
  []
 
-./MAA2_MJ.tex:142: Missing } inserted.
+./MAA2_MJ.tex:139: Missing } inserted.
 <inserted text> 
                 }
-l.142 \end{frame}
+l.139 \end{frame}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1245,10 +1245,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./MAA2_MJ.tex:142: Missing } inserted.
+./MAA2_MJ.tex:139: Missing } inserted.
 <inserted text> 
                 }
-l.142 \end{frame}
+l.139 \end{frame}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1261,83 +1261,8 @@ my insertion and my current dilemma will both disappear.
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
  <use  "images/tsumath_copy.png" >
-./MAA2_MJ.tex:142: Undefined control sequence.
-<argument> \pdfmark 
-                    [{\box \@tempboxa }]{pdfmark=/ANN,Subtype=/Movie,Movie=<...
-l.142 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MAA2_MJ.tex:142: Missing $ inserted.
-<inserted text> 
-                $
-l.142 \end{frame}
-                 
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./MAA2_MJ.tex:142: Extra }, or forgotten $.
-<argument> ...=(\mm@label ), Border={0 0 \mm@bw }}
-                                                  
-l.142 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./MAA2_MJ.tex:142: Extra }, or forgotten $.
-\\movie ...the \pdflastobj \space 0 R>>}}\fi \fi }
-                                                  
-l.142 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./MAA2_MJ.tex:142: Missing $ inserted.
-<inserted text> 
-                $
-l.142 \end{frame}
-                 
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (43.51106pt too wide) in paragraph at lines 142--142
-\OT1/cmss/m/n/10.95 [[]]pdfmark=/ANN,Subtype=/Movie,Movie=<< 
- []
-
-./MAA2_MJ.tex:142: Missing } inserted.
-<inserted text> 
-                }
-l.142 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./MAA2_MJ.tex:142: Missing } inserted.
-<inserted text> 
-                }
-l.142 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-[7
+File: images/fish_schoo.jpg Graphic file (type QTm)
+ <use  "images/fish_schoo.jpg" > [7
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
@@ -1347,9 +1272,7 @@ File: images/fish_schoo.jpg Graphic file (type QTm)
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
- <use  "images/tsumath_copy.png" >
-File: images/fish_schoo.jpg Graphic file (type QTm)
- <use  "images/fish_schoo.jpg" > [9
+ <use  "images/tsumath_copy.png" > [9
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
@@ -1369,55 +1292,96 @@ File: images/tsumath_copy.png Graphic file (type QTm)
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
- <use  "images/tsumath_copy.png" > [14
+ <use  "images/tsumath_copy.png" >
 
-]
-File: images/tsumath_copy.png Graphic file (type QTm)
- <use  "images/tsumath_copy.png" > [15
+./MAA2_MJ.tex:272: Package xcolor Error: Undefined color `Olive Green'.
 
-]
-File: images/tsumath_copy.png Graphic file (type QTm)
- <use  "images/tsumath_copy.png" > [16
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.272 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
-]
-File: images/tsumath_copy.png Graphic file (type QTm)
- <use  "images/tsumath_copy.png" > [17
-
-]
-File: images/tsumath_copy.png Graphic file (type QTm)
- <use  "images/tsumath_copy.png" > [18
+[14
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
  <use  "images/tsumath_copy.png" >
-./MAA2_MJ.tex:322: Undefined control sequence.
-<argument> \ufsdxf 
-                   {$f$}
-l.322 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-[19
+./MAA2_MJ.tex:272: Package xcolor Error: Undefined color `Olive Green'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.272 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[15
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
  <use  "images/tsumath_copy.png" >
-./MAA2_MJ.tex:322: Undefined control sequence.
-<argument> \ufsdxf 
-                   {$f$}
-l.322 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-[20
+./MAA2_MJ.tex:272: Package xcolor Error: Undefined color `Olive Green'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.272 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[16
+
+]
+File: images/tsumath_copy.png Graphic file (type QTm)
+ <use  "images/tsumath_copy.png" >
+
+./MAA2_MJ.tex:272: Package xcolor Error: Undefined color `Olive Green'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.272 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[17
+
+]
+File: images/tsumath_copy.png Graphic file (type QTm)
+ <use  "images/tsumath_copy.png" >
+
+./MAA2_MJ.tex:272: Package xcolor Error: Undefined color `Olive Green'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.272 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[18
+
+]
+File: images/tsumath_copy.png Graphic file (type QTm)
+ <use  "images/tsumath_copy.png" > [19
+
+]
+File: images/tsumath_copy.png Graphic file (type QTm)
+ <use  "images/tsumath_copy.png" > [20
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
@@ -1425,7 +1389,9 @@ File: images/tsumath_copy.png Graphic file (type QTm)
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
- <use  "images/tsumath_copy.png" > [22
+ <use  "images/tsumath_copy.png" >
+File: images/coeff_plot2.eps Graphic file (type eps)
+ <images/coeff_plot2.eps> [22
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
@@ -1453,375 +1419,15 @@ File: images/tsumath_copy.png Graphic file (type QTm)
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
- <use  "images/tsumath_copy.png" >
-./MAA2_MJ.tex:425: Undefined control sequence.
-<argument> \pdfmark 
-                    [{\box \@tempboxa }]{pdfmark=/ANN,Subtype=/Movie,Movie=<...
-l.425 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MAA2_MJ.tex:425: Missing $ inserted.
-<inserted text> 
-                $
-l.425 \end{frame}
-                 
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./MAA2_MJ.tex:425: Extra }, or forgotten $.
-<argument> ...=(\mm@label ), Border={0 0 \mm@bw }}
-                                                  
-l.425 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./MAA2_MJ.tex:425: Extra }, or forgotten $.
-\\movie ...the \pdflastobj \space 0 R>>}}\fi \fi }
-                                                  
-l.425 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-./MAA2_MJ.tex:425: LaTeX Error: Command \end{center} invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.425 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./MAA2_MJ.tex:425: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.425 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./MAA2_MJ.tex:425: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.425 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./MAA2_MJ.tex:425: Missing $ inserted.
-<inserted text> 
-                $
-l.425 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./MAA2_MJ.tex:425: Missing } inserted.
-<inserted text> 
-                }
-l.425 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./MAA2_MJ.tex:425: Missing } inserted.
-<inserted text> 
-                }
-l.425 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (100.41656pt too wide) in paragraph at lines 425--425
-\OT1/cmss/m/n/10.95 [[]]pdfmark=/ANN,Subtype=/Movie,Movie=<< 
- []
-
-
-Overfull \vbox (20.6362pt too high) detected at line 425
- []
-
-[29
+ <use  "images/tsumath_copy.png" > [29
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
- <use  "images/tsumath_copy.png" >
-./MAA2_MJ.tex:432: Undefined control sequence.
-<argument> \pdfmark 
-                    [{\box \@tempboxa }]{pdfmark=/ANN,Subtype=/Movie,Movie=<...
-l.432 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MAA2_MJ.tex:432: Missing $ inserted.
-<inserted text> 
-                $
-l.432 \end{frame}
-                 
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./MAA2_MJ.tex:432: Extra }, or forgotten $.
-<argument> ...=(\mm@label ), Border={0 0 \mm@bw }}
-                                                  
-l.432 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./MAA2_MJ.tex:432: Extra }, or forgotten $.
-\\movie ...the \pdflastobj \space 0 R>>}}\fi \fi }
-                                                  
-l.432 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-./MAA2_MJ.tex:432: LaTeX Error: Command \end{center} invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.432 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./MAA2_MJ.tex:432: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.432 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./MAA2_MJ.tex:432: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.432 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./MAA2_MJ.tex:432: Missing $ inserted.
-<inserted text> 
-                $
-l.432 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./MAA2_MJ.tex:432: Missing } inserted.
-<inserted text> 
-                }
-l.432 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./MAA2_MJ.tex:432: Missing } inserted.
-<inserted text> 
-                }
-l.432 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (100.41656pt too wide) in paragraph at lines 432--432
-\OT1/cmss/m/n/10.95 [[]]pdfmark=/ANN,Subtype=/Movie,Movie=<< 
- []
-
-
-Overfull \vbox (20.6362pt too high) detected at line 432
- []
-
-[30
+ <use  "images/tsumath_copy.png" > [30
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
- <use  "images/tsumath_copy.png" >
-./MAA2_MJ.tex:439: Undefined control sequence.
-<argument> \pdfmark 
-                    [{\box \@tempboxa }]{pdfmark=/ANN,Subtype=/Movie,Movie=<...
-l.439 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MAA2_MJ.tex:439: Missing $ inserted.
-<inserted text> 
-                $
-l.439 \end{frame}
-                 
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./MAA2_MJ.tex:439: Extra }, or forgotten $.
-<argument> ...=(\mm@label ), Border={0 0 \mm@bw }}
-                                                  
-l.439 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./MAA2_MJ.tex:439: Extra }, or forgotten $.
-\\movie ...the \pdflastobj \space 0 R>>}}\fi \fi }
-                                                  
-l.439 \end{frame}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-./MAA2_MJ.tex:439: LaTeX Error: Command \end{center} invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.439 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./MAA2_MJ.tex:439: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.439 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./MAA2_MJ.tex:439: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.439 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./MAA2_MJ.tex:439: Missing $ inserted.
-<inserted text> 
-                $
-l.439 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./MAA2_MJ.tex:439: Missing } inserted.
-<inserted text> 
-                }
-l.439 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./MAA2_MJ.tex:439: Missing } inserted.
-<inserted text> 
-                }
-l.439 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (100.41656pt too wide) in paragraph at lines 439--439
-\OT1/cmss/m/n/10.95 [[]]pdfmark=/ANN,Subtype=/Movie,Movie=<< 
- []
-
-
-Overfull \vbox (20.6362pt too high) detected at line 439
- []
-
-[31
+ <use  "images/tsumath_copy.png" > [31
 
 ]
 File: images/tsumath_copy.png Graphic file (type QTm)
@@ -1836,6 +1442,394 @@ File: images/tsumath_copy.png Graphic file (type QTm)
  <use  "images/tsumath_copy.png" > [34
 
 ]
+File: images/tsumath_copy.png Graphic file (type QTm)
+ <use  "images/tsumath_copy.png" > [35
+
+]
+File: images/tsumath_copy.png Graphic file (type QTm)
+ <use  "images/tsumath_copy.png" >
+./MAA2_MJ.tex:434: Undefined control sequence.
+<argument> \pdfmark 
+                    [{\box \@tempboxa }]{pdfmark=/ANN,Subtype=/Movie,Movie=<...
+l.434 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MAA2_MJ.tex:434: Missing $ inserted.
+<inserted text> 
+                $
+l.434 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./MAA2_MJ.tex:434: Extra }, or forgotten $.
+<argument> ...=(\mm@label ), Border={0 0 \mm@bw }}
+                                                  
+l.434 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./MAA2_MJ.tex:434: Extra }, or forgotten $.
+\\movie ...the \pdflastobj \space 0 R>>}}\fi \fi }
+                                                  
+l.434 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+./MAA2_MJ.tex:434: LaTeX Error: Command \end{center} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.434 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./MAA2_MJ.tex:434: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.434 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./MAA2_MJ.tex:434: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.434 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./MAA2_MJ.tex:434: Missing $ inserted.
+<inserted text> 
+                $
+l.434 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./MAA2_MJ.tex:434: Missing } inserted.
+<inserted text> 
+                }
+l.434 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./MAA2_MJ.tex:434: Missing } inserted.
+<inserted text> 
+                }
+l.434 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (100.41656pt too wide) in paragraph at lines 434--434
+\OT1/cmss/m/n/10.95 [[]]pdfmark=/ANN,Subtype=/Movie,Movie=<< 
+ []
+
+
+Overfull \vbox (20.6362pt too high) detected at line 434
+ []
+
+[36
+
+]
+File: images/tsumath_copy.png Graphic file (type QTm)
+ <use  "images/tsumath_copy.png" >
+./MAA2_MJ.tex:441: Undefined control sequence.
+<argument> \pdfmark 
+                    [{\box \@tempboxa }]{pdfmark=/ANN,Subtype=/Movie,Movie=<...
+l.441 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MAA2_MJ.tex:441: Missing $ inserted.
+<inserted text> 
+                $
+l.441 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./MAA2_MJ.tex:441: Extra }, or forgotten $.
+<argument> ...=(\mm@label ), Border={0 0 \mm@bw }}
+                                                  
+l.441 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./MAA2_MJ.tex:441: Extra }, or forgotten $.
+\\movie ...the \pdflastobj \space 0 R>>}}\fi \fi }
+                                                  
+l.441 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+./MAA2_MJ.tex:441: LaTeX Error: Command \end{center} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.441 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./MAA2_MJ.tex:441: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.441 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./MAA2_MJ.tex:441: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.441 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./MAA2_MJ.tex:441: Missing $ inserted.
+<inserted text> 
+                $
+l.441 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./MAA2_MJ.tex:441: Missing } inserted.
+<inserted text> 
+                }
+l.441 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./MAA2_MJ.tex:441: Missing } inserted.
+<inserted text> 
+                }
+l.441 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (100.41656pt too wide) in paragraph at lines 441--441
+\OT1/cmss/m/n/10.95 [[]]pdfmark=/ANN,Subtype=/Movie,Movie=<< 
+ []
+
+
+Overfull \vbox (20.6362pt too high) detected at line 441
+ []
+
+[37
+
+]
+File: images/tsumath_copy.png Graphic file (type QTm)
+ <use  "images/tsumath_copy.png" >
+./MAA2_MJ.tex:448: Undefined control sequence.
+<argument> \pdfmark 
+                    [{\box \@tempboxa }]{pdfmark=/ANN,Subtype=/Movie,Movie=<...
+l.448 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MAA2_MJ.tex:448: Missing $ inserted.
+<inserted text> 
+                $
+l.448 \end{frame}
+                 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./MAA2_MJ.tex:448: Extra }, or forgotten $.
+<argument> ...=(\mm@label ), Border={0 0 \mm@bw }}
+                                                  
+l.448 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./MAA2_MJ.tex:448: Extra }, or forgotten $.
+\\movie ...the \pdflastobj \space 0 R>>}}\fi \fi }
+                                                  
+l.448 \end{frame}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+./MAA2_MJ.tex:448: LaTeX Error: Command \end{center} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.448 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./MAA2_MJ.tex:448: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.448 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./MAA2_MJ.tex:448: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.448 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./MAA2_MJ.tex:448: Missing $ inserted.
+<inserted text> 
+                $
+l.448 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./MAA2_MJ.tex:448: Missing } inserted.
+<inserted text> 
+                }
+l.448 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./MAA2_MJ.tex:448: Missing } inserted.
+<inserted text> 
+                }
+l.448 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (100.41656pt too wide) in paragraph at lines 448--448
+\OT1/cmss/m/n/10.95 [[]]pdfmark=/ANN,Subtype=/Movie,Movie=<< 
+ []
+
+
+Overfull \vbox (20.6362pt too high) detected at line 448
+ []
+
+[38
+
+]
+File: images/tsumath_copy.png Graphic file (type QTm)
+ <use  "images/tsumath_copy.png" > [39
+
+]
+File: images/tsumath_copy.png Graphic file (type QTm)
+ <use  "images/tsumath_copy.png" > [40
+
+]
+File: images/tsumath_copy.png Graphic file (type QTm)
+ <use  "images/tsumath_copy.png" > [41
+
+]
 \tf@nav=\write6
 \openout6 = `MAA2_MJ.nav'.
 
@@ -1845,25 +1839,25 @@ File: images/tsumath_copy.png Graphic file (type QTm)
 \tf@snm=\write8
 \openout8 = `MAA2_MJ.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 484.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 484.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 493.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 493.
  (/Users/mikaelajordan/Documents/MathModeling/sync/Presentations/.texpadtmp/MAA2_MJ.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 484.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 484.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 493.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 493.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 484.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 493.
  ) 
 Here is how much of TeX's memory you used:
- 38247 strings out of 493706
- 850718 string characters out of 6145769
- 1102596 words of memory out of 5000000
- 40821 multiletter control sequences out of 15000+600000
- 17764 words of font info for 64 fonts, out of 8000000 for 9000
+ 38271 strings out of 493706
+ 851166 string characters out of 6145769
+ 1103995 words of memory out of 5000000
+ 40846 multiletter control sequences out of 15000+600000
+ 16724 words of font info for 60 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  56i,16n,79p,728b,905s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/mikaelajordan/Documents/MathModeling/sync/Presentations/.texpadtmp/MAA2_MJ.pdf (34 pages).
+Output written on /Users/mikaelajordan/Documents/MathModeling/sync/Presentations/.texpadtmp/MAA2_MJ.pdf (41 pages).
