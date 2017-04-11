@@ -1,10 +1,6 @@
 /*
 David and Mikaela
 SYNC FORCES 
-
-Try new force calculation 
-
-28 March 2017
 */
 
 // gcc close_v6_2D.c -o temp -lglut -lm -lGLU -lGL && ./temp
