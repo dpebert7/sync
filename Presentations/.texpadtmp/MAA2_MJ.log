@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.5.24)  30 MAR 2017 21:44
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.5.24)  11 APR 2017 11:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1388,16 +1388,201 @@ File: images/tsumath_copy.png Graphic file (type QTm)
  <use  "images/tsumath_copy.png" > [21
 
 ]
-File: images/tsumath_copy.png Graphic file (type QTm)
- <use  "images/tsumath_copy.png" >
-File: images/coeff_plot2.eps Graphic file (type eps)
- <images/coeff_plot2.eps> [22
+./MAA2_MJ.tex:323: Argument of \frame has an extra }.
+<inserted text> 
+                \par 
+l.323 ...ndentry{\frac{2}{x^{2}} - \frac{1}{x^4}}}
+                                                  
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
 
-]
-File: images/tsumath_copy.png Graphic file (type QTm)
- <use  "images/tsumath_copy.png" > [23
+Runaway argument?
+ \begin {figure} \centering \includegraphics [scale=1]{images/coeff_p\ETC.
+./MAA2_MJ.tex:323: Paragraph ended before \frame was complete.
+<to be read again> 
+                   \par 
+l.323 ...ndentry{\frac{2}{x^{2}} - \frac{1}{x^4}}}
+                                                  
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
 
-]
+./MAA2_MJ.tex:323: Extra }, or forgotten \endgroup.
+<recently read> }
+                 
+l.323 ...ndentry{\frac{2}{x^{2}} - \frac{1}{x^4}}}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+./MAA2_MJ.tex:324: LaTeX Error: \begin{frame} on input line 299 ended by \end{axis}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.324 ^^I^^I^^I\end{axis}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./MAA2_MJ.tex:325: Undefined control sequence.
+\endtikzpicture ...r@layerlist@globally \endscope 
+                                                  \let \pgf@baseline =\pgf@s...
+l.325 ^^I^^I\end{tikzpicture}
+                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MAA2_MJ.tex:325: Too many }'s.
+\endpgfpicture ...globally \endgroup \hss \egroup 
+                                                  \pgf@restore@layerlist@fro...
+l.325 ^^I^^I\end{tikzpicture}
+                             
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+./MAA2_MJ.tex:325: Extra \endgroup.
+\endpgfpicture ...bal \pgf@insertlayers \endgroup 
+                                                  \pgfsys@discardpath \endgr...
+l.325 ^^I^^I\end{tikzpicture}
+                             
+Things are pretty mixed up, but I think the worst is over.
+
+./MAA2_MJ.tex:325: Extra \endgroup.
+\endpgfpicture ...p \pgfsys@discardpath \endgroup 
+                                                  \pgfsys@endscope \pgfsys@e...
+l.325 ^^I^^I\end{tikzpicture}
+                             
+Things are pretty mixed up, but I think the worst is over.
+
+./MAA2_MJ.tex:325: Extra \endgroup.
+\endpgfpicture ...pe \pgfsys@endpicture \endgroup 
+                                                  \hss \egroup \pgfsys@types...
+l.325 ^^I^^I\end{tikzpicture}
+                             
+Things are pretty mixed up, but I think the worst is over.
+
+./MAA2_MJ.tex:325: Too many }'s.
+\endpgfpicture ...dpicture \endgroup \hss \egroup 
+                                                  \pgfsys@typesetpicturebox ...
+l.325 ^^I^^I\end{tikzpicture}
+                             
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+./MAA2_MJ.tex:325: Extra \endgroup.
+\endpgfpicture ...setpicturebox \pgfpic \endgroup 
+                                                  
+l.325 ^^I^^I\end{tikzpicture}
+                             
+Things are pretty mixed up, but I think the worst is over.
+
+./MAA2_MJ.tex:325: Extra \endgroup.
+\endtikzpicture ...lobal \endpgfpicture \endgroup 
+                                                  
+l.325 ^^I^^I\end{tikzpicture}
+                             
+Things are pretty mixed up, but I think the worst is over.
+
+
+./MAA2_MJ.tex:325: LaTeX Error: \begin{document} ended by \end{tikzpicture}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.325 ^^I^^I\end{tikzpicture}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./MAA2_MJ.tex:325: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.325 ^^I^^I\end{tikzpicture}
+                             
+Things are pretty mixed up, but I think the worst is over.
+
+./MAA2_MJ.tex:326: Infinite glue shrinkage found in a paragraph.
+\endfigure ->\par 
+                  \nobreak \end {center}
+l.326 ^^I\end{figure}
+                     
+The paragraph just ended includes some glue that has
+infinite shrinkability, e.g., `\hskip 0pt minus 1fil'.
+Such glue doesn't belong there---it allows a paragraph
+of any length to fit on one line. But it's safe to proceed,
+since the offensive shrinkability has been made finite.
+
+
+./MAA2_MJ.tex:326: LaTeX Error: \begin{document} ended by \end{center}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.326 ^^I\end{figure}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./MAA2_MJ.tex:326: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.326 ^^I\end{figure}
+                     
+Things are pretty mixed up, but I think the worst is over.
+
+
+./MAA2_MJ.tex:326: LaTeX Error: \begin{document} ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.326 ^^I\end{figure}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./MAA2_MJ.tex:326: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.326 ^^I\end{figure}
+                     
+Things are pretty mixed up, but I think the worst is over.
+
+./MAA2_MJ.tex:327: Too many }'s.
+\endframe ->\egroup 
+                    \begingroup \def \@currenvir {frame}
+l.327 \end{frame}
+                 
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+File: images/tsumath_copy.png Graphic file (type QTm)
+<use  "images/tsumath_copy.png" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22
+
+] [23]
 File: images/tsumath_copy.png Graphic file (type QTm)
  <use  "images/tsumath_copy.png" > [24
 
@@ -1852,10 +2037,10 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 493.
  ) 
 Here is how much of TeX's memory you used:
- 38271 strings out of 493706
- 851166 string characters out of 6145769
- 1103995 words of memory out of 5000000
- 40846 multiletter control sequences out of 15000+600000
+ 38267 strings out of 493706
+ 851113 string characters out of 6145769
+ 1103957 words of memory out of 5000000
+ 40843 multiletter control sequences out of 15000+600000
  16724 words of font info for 60 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  56i,16n,79p,728b,905s stack positions out of 5000i,500n,10000p,200000b,80000s
