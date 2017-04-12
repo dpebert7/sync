@@ -1,9 +1,13 @@
 /*
 David and Mikaela
 SYNC FORCES 
+
+Try new force calculation 
+
+28 March 2017
 */
 
-// gcc tails_v1.c -o temp -lglut -lm -lGLU -lGL && ./temp
+// gcc 2D.c -o temp -lglut -lm -lGLU -lGL && ./temp
 
 #include <GL/glut.h>
 #include <math.h>
@@ -34,12 +38,10 @@ SYNC FORCES
 #define CR		2.0 // Repulsion Coefficient
 #define CPR		100000000.0 // Repulsion Coefficient (predator)
 
-#define NFISH 		6 // Number of fish
+#define NFISH 		10 // Number of fish
 #define NFOOD 		0 //Number of Targets
 #define NPRED		1 //Number of Predators
 #define N		NFISH + NFOOD + NPRED // Total number of particles
-
-#define TAIL_LENGTH	3.0
 
 
 
@@ -47,7 +49,7 @@ SYNC FORCES
 double CENTER[3], // Center or point of attraction
 	r;	  // Distance between particles
 double 	TIMERUNNING = 0.0;
-double 	SPEED = 50000.0;
+double 	SPEED = 500000.0;
 
 int 	FOODPOINTER = NFISH; // Our first food particle
 int	PAUSE = 0;
@@ -91,7 +93,7 @@ void initialize_bodies()
 		//particle[i].v[0] = 1000.0*sin(particle[i].p[1]/30.0);
 		//particle[i].v[1] = -1000.0*sin(particle[i].p[0]/30.0);
 		//particle[i].v[2] = 0.0;//10000.0*cos(particle[i].p[2]);
-		particle[i].v[0] = 200.0;
+		particle[i].v[0] = 0.0;
 		particle[i].v[1] = 0.0;
 		particle[i].v[2] = 0.0;
 
@@ -187,6 +189,22 @@ void initialize_bodies()
 	}	
 }
 
+void draw_picture()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_DEPTH_BUFFER_BIT);
+
+	int i;
+	
+	for(i=0;i<N;i++){
+		glColor3d(particle[i].color[0], particle[i].color[1], particle[i].color[2]); 	//Object color
+		glPushMatrix();
+		glTranslatef(particle[i].p[0], particle[i].p[1], particle[i].p[2]);
+		glutSolidSphere(particle[i].radius, 10, 10);  //First argument affects size.
+		glPopMatrix();
+	}
+	glutSwapBuffers();
+}
 
 int n_body()
 {
@@ -255,11 +273,10 @@ int n_body()
 				particle[j].f[1] += WA*(CA*(d[1]/r2) - CR*(d[1]/r4)) + WD*(particle[i].v[1]/r);
 				particle[j].f[2] += 0.0; //WA*(CA*(d[2]/r2) - CR*(d[2]/r4)) + WD*(particle[i].v[2]/r);
 			}
-			printf("The current force vector for particle %d is: (%lf, %lf, %lf)\n", i, particle[i].f[0], particle[i].f[1], particle[i].f[0]);
+			//printf("The current force vector for particle %d is: (%lf, %lf, %lf)\n", i, particle[i].f[0], particle[i].f[1], particle[i].f[0]);
 		}
 
 		// Predator force
-		/*
 		for(j=NFISH+NFOOD; j<N; j++) //j is predator; i is fish
 		{
 			d[0] = particle[j].p[0] - particle[i].p[0];
@@ -276,7 +293,6 @@ int n_body()
 				particle[i].f[2] -= 0.0; //CPR*(d[2]/r4);
 			}
 		}
-		*/
 	}
 
 	// Update Velocities and Move Fish
@@ -352,14 +368,25 @@ int n_body()
 		particle[i].f[1] /= force_mag;
 		particle[i].f[2] /= force_mag;
 
-		///////////////////////////////////////////////////
-		//  Move the each fish towards the target -- Messed up new version
-		///////////////////////////////////////////////////
+		//  Move the each fish towards the target
+		particle[i].vc[0] = particle[i].p[0] - particle[NFISH].p[0];
+		particle[i].vc[1] = particle[i].p[1] - particle[NFISH].p[1];
+		particle[i].vc[2] = particle[i].p[2] - particle[NFISH].p[2];
+
 		
-		/*
-		particle[i].v[0] = (9*particle[i].vn[0] + particle[i].f[0]*dt)/10;
-		particle[i].v[1] = (9*particle[i].vn[1] + particle[i].f[1]*dt)/10;
-		particle[i].v[2] = (9*particle[i].vn[2] + particle[i].f[2]*dt)/10;
+		particle[i].vn[0] = (9*particle[i].vn[0] + particle[i].f[0]*dt)/10;
+		particle[i].vn[1] = (9*particle[i].vn[1] + particle[i].f[1]*dt)/10;
+		particle[i].vn[2] = (9*particle[i].vn[2] + particle[i].f[2]*dt)/10;
+		
+		
+		/*particle[i].vn[0] += particle[i].f[0]*dt;
+		particle[i].vn[1] += particle[i].f[1]*dt;
+		particle[i].vn[2] += particle[i].f[2]*dt;
+		*/			
+
+		particle[i].v[0] = particle[i].vn[0];// + 5.0*particle[i].vc[0];
+		particle[i].v[1] = particle[i].vn[1];// + 5.0*particle[i].vc[1];
+		particle[i].v[2] = particle[i].vn[2];// + 5.0*particle[i].vc[2];
 		
 		particle[i].v[0] *= SPEED;
 		particle[i].v[1] *= SPEED;
@@ -368,39 +395,21 @@ int n_body()
 		particle[i].p[0] += particle[i].v[0]*dt;
 		particle[i].p[1] += particle[i].v[1]*dt;
 		particle[i].p[2] += particle[i].v[2]*dt;
-		//*/
+
+		//particle[i].p[0] *= 0.5;
+		//particle[i].p[0] *= 0.5;
+		//particle[i].p[0] *= 0.5;
+
 	
-		///////////////////////////////////////////////////
-		//  Move the each fish towards the target -- Cleaned up original version
-		///////////////////////////////////////////////////
-
-		//*																	// vn is incredibly stupidly defined!!
-		particle[i].vn[0] = (9*particle[i].vn[0] + particle[i].f[0]*dt)/10; // vn is a way small version of previous step's velocity!
-		particle[i].vn[1] = (9*particle[i].vn[1] + particle[i].f[1]*dt)/10;
-		particle[i].vn[2] = (9*particle[i].vn[2] + particle[i].f[2]*dt)/10;
-					
-
-		particle[i].v[0] = particle[i].vn[0]*SPEED;
-		particle[i].v[1] = particle[i].vn[1]*SPEED;
-		particle[i].v[2] = particle[i].vn[2]*SPEED;
-
-		particle[i].p[0] += particle[i].v[0]*dt;
-		particle[i].p[1] += particle[i].v[1]*dt;
-		particle[i].p[2] += particle[i].v[2]*dt;		
-		//*/
-		
 		// Diagnostics
-		//*
-		//printf("The vn of particle %i is (%.4f, %.4f, %.4f)\n", 
-		//		i, particle[i].vn[0], particle[i].vn[1], particle[i].vn[2]);
 		printf("The position of particle %i is (%.4f, %.4f, %.4f)\n", 
 				i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
-		printf("The velocity of particle %i is (%.4f, %.4f, %.4f)\n", 
-				i, particle[i].v[0], particle[i].v[1], particle[i].v[2]);
-		printf("The forces on particle %i are (%.4f, %.4f, %.4f)\n", 
-				i, particle[i].f[0], particle[i].f[1], particle[i].f[2]);
-		printf("\n");
-		//*/
+		//printf("The velocity of particle %i is (%.4f, %.4f, %.4f)\n", 
+		//		i, particle[i].v[0], particle[i].v[1], particle[i].v[2]);
+		//printf("The forces on particle %i are (%.4f, %.4f, %.4f)\n", 
+		//		i, particle[i].f[0], particle[i].f[1], particle[i].f[2]);
+		//printf("\n");
+		
 	}
 
 	TIMERUNNING += dt;
@@ -490,7 +499,7 @@ void update(int value)
 			n_body();
 		}	
 	}
-    	glutSpecialFunc( arrowFunc );
+    glutSpecialFunc( arrowFunc );
 	glutKeyboardFunc( keyboardFunc );
 	glutMouseFunc( mouseFunc );
 	glutPostRedisplay();
@@ -500,103 +509,16 @@ void update(int value)
 }
 
 
-void draw_picture()
-{
-	glClear(GL_COLOR_BUFFER_BIT);
-	glClear(GL_DEPTH_BUFFER_BIT);
-
-	
-	glBegin(GL_QUADS); 
-		glColor3f(0.2f, 1.0f, 0.5f);     // Red 
-		glVertex3f( -2.0f, -1.0f, 2.0f);  
-		glColor3f(0.2f, 0.2f, 0.3f);     // Blue 
-		glVertex3f(-2.0f, -1.0f, -2.0f); 
-		glColor3f(0.2f, 0.2f, 0.6f);     // Green 
-		glVertex3f(2.0f, -1.0f, -2.0f); 
-		glColor3f(0.2f, 1.0f, 0.3f);     // Green 
-		glVertex3f(2.0f, -1.0f, 2.0f); 
-	glEnd(); // draw "ground" 
-
-	// Draw back lines
-	glLineWidth(5.0); 
-	glColor3f(1.0, 0.0, 0.0);
-	glBegin(GL_LINES);
-	glVertex3f(-50.0, -50.0, -50.0);
-	glVertex3f( 50.0, -50.0, -50.0);
-	glEnd();
-	glBegin(GL_LINES);
-	glVertex3f( 50.0, -50.0, -50.0);
-	glVertex3f( 50.0,  50.0, -50.0);
-	glEnd();
-	glBegin(GL_LINES);
-	glVertex3f( 50.0,  50.0, -50.0);
-	glVertex3f(-50.0,  50.0, -50.0);
-	glEnd();
-	glBegin(GL_LINES);
-	glVertex3f(-50.0,  50.0, -50.0);
-	glVertex3f(-50.0, -50.0, -50.0);
-	glEnd();
-	// End lines
-
-	// Draw side lines
-	glLineWidth(10.0); 
-	glColor3f(1.0, 0.0, 0.0);
-	glBegin(GL_LINES);
-	glVertex3f( 50.0,  50.0, -50.0);
-	glVertex3f( 50.0,  50.0,  50.0);
-	glEnd();
-	glBegin(GL_LINES);
-	glVertex3f( 50.0, -50.0, -50.0);
-	glVertex3f( 50.0, -50.0,  50.0);
-	glEnd();
-	glBegin(GL_LINES);
-	glVertex3f(-50.0,  50.0, -50.0);
-	glVertex3f(-50.0,  50.0,  50.0);
-	glEnd();
-	glBegin(GL_LINES);
-	glVertex3f(-50.0, -50.0, -50.0);
-	glVertex3f(-50.0, -50.0,  50.0);
-	glEnd();
-	// End lines
-	
-	int i;
-	
-	for(i=0;i<N;i++){
-		glColor3d(particle[i].color[0], particle[i].color[1], particle[i].color[2]); 	//Object color
-
-	
-		glLineWidth(3.0); 		
-		glBegin(GL_LINES); // tail
-		float velocity_mag = sqrt(particle[i].v[0]*particle[i].v[0]+particle[i].v[1]*particle[i].v[1]+particle[i].v[2]*particle[i].v[2])/TAIL_LENGTH;
-		glVertex3f(particle[i].p[0], particle[i].p[1], particle[i].p[2]);
-		glVertex3f(	particle[i].p[0]-(particle[i].v[0]/velocity_mag), 
-				particle[i].p[1]-particle[i].v[1]/velocity_mag, 
-				particle[i].p[2]-particle[i].v[2]/velocity_mag);
-		glEnd();
-
-		glPushMatrix();
-		glTranslatef(particle[i].p[0], particle[i].p[1], particle[i].p[2]);
-		glutSolidSphere(particle[i].radius, 10, 10);  //First argument affects size.
-		glPopMatrix();
-	}
-	glutSwapBuffers();
-}
-
-
 void Display(void)
 {
-
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClear(GL_DEPTH_BUFFER_BIT);
-
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	draw_picture();
 	glutSwapBuffers();
 	glFlush();
 
 }
-
 
 void reshape(int w, int h)
 {
@@ -630,8 +552,6 @@ int main(int argc, char** argv)
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
 	glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient);
-	
-
 	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
 	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 	glEnable(GL_LIGHTING);
@@ -647,4 +567,5 @@ int main(int argc, char** argv)
 	glutMainLoop();
 	return 0;
 }
+
 

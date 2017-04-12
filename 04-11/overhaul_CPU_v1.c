@@ -3,7 +3,7 @@ David and Mikaela
 SYNC FORCES 
 */
 
-// gcc tails_v1.c -o temp -lglut -lm -lGLU -lGL && ./temp
+// gcc overhaul_CPU_v1.c -o temp -lglut -lm -lGLU -lGL && ./temp
 
 #include <GL/glut.h>
 #include <math.h>
@@ -20,22 +20,22 @@ SYNC FORCES
 #define BDIST		10.0 // Distance from boundary at which curving should start.
 #define PI		3.1415926535
 #define DRAW 		10	// For draw_picture
-#define XWindowSize 	1000 	// 700 initially 
-#define YWindowSize 	1000 	// 700 initially
+#define XWindowSize 	700 	// 700 initially 
+#define YWindowSize 	700 	// 700 initially
 
-#define DT        	0.001 	// Time step
+#define DT        	0.01 	// Time step
 #define STOP_TIME	10.0 	// How long to go
-//#define STOP_TIME	0.0003
+//#define STOP_TIME	0.03
 
 #define SIGHT 		10.0 // How far the fish can 'see'
 #define WA		2.0 // Attraction Weight Ratio
 #define WD 		10.0 // Directional Weight Ratio
 #define CA 		2.0 // Attraction Coefficient
 #define CR		2.0 // Repulsion Coefficient
-#define CPR		100000000.0 // Repulsion Coefficient (predator)
+#define CPR		10.0 // Repulsion Coefficient (predator)
 
-#define NFISH 		6 // Number of fish
-#define NFOOD 		0 //Number of Targets
+#define NFISH 		5 // Number of fish
+#define NFOOD 		1 //Number of Targets
 #define NPRED		1 //Number of Predators
 #define N		NFISH + NFOOD + NPRED // Total number of particles
 
@@ -47,7 +47,7 @@ SYNC FORCES
 double CENTER[3], // Center or point of attraction
 	r;	  // Distance between particles
 double 	TIMERUNNING = 0.0;
-double 	SPEED = 50000.0;
+double 	SPEED = 1.0;
 
 int 	FOODPOINTER = NFISH; // Our first food particle
 int	PAUSE = 0;
@@ -76,8 +76,8 @@ void initialize_bodies()
 	for(i=0; i<NFISH; i++)
 	{	
 		/* Option to start in a CIRCLE
-		particle[i].p[0] = sin(i*2*PI/NFISH)*2.0;
-		particle[i].p[1] = cos(i*2*PI/NFISH)*2.0;
+		particle[i].p[0] = sin(i*2*PI/NFISH)*10.0;
+		particle[i].p[1] = cos(i*2*PI/NFISH)*10.0;
 		particle[i].p[2] = 0.0;
 		//*/
 		
@@ -91,7 +91,7 @@ void initialize_bodies()
 		//particle[i].v[0] = 1000.0*sin(particle[i].p[1]/30.0);
 		//particle[i].v[1] = -1000.0*sin(particle[i].p[0]/30.0);
 		//particle[i].v[2] = 0.0;//10000.0*cos(particle[i].p[2]);
-		particle[i].v[0] = 200.0;
+		particle[i].v[0] = 0.0;
 		particle[i].v[1] = 0.0;
 		particle[i].v[2] = 0.0;
 
@@ -112,8 +112,8 @@ void initialize_bodies()
 		// Type
 		particle[i].type = 1;
 		
-		//printf("The starting position of particle %i is (%.4f, %.4f, %.4f)\n", 
-		//	i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
+		printf("The starting position of particle %i is (%.4f, %.4f, %.4f)\n", 
+			i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
 	}
 
 	//Initialize Food
@@ -138,7 +138,7 @@ void initialize_bodies()
 		//*/
 	
 		// Target Radius and Color
-		particle[i].radius = 0.5; // default was 0.05
+		particle[i].radius   = 0.5; // default was 0.05
 		particle[i].color[0] = 0.0;
 		particle[i].color[1] = 0.0;
 		particle[i].color[2] = 1.0;
@@ -154,8 +154,8 @@ void initialize_bodies()
 		for(i=NFISH+NFOOD; i<NFISH+NFOOD+NPRED; i++)
 		{
 			//*Option to start in a CIRCLE
-			particle[i].p[0] = 30.0*sin(i*2*PI/NPRED);
-			particle[i].p[1] = 30.0*cos(i*2*PI/NPRED);
+			particle[i].p[0] = 0.0;//30.0*sin(i*2*PI/NPRED);
+			particle[i].p[1] = 0.0;//30.0*cos(i*2*PI/NPRED);
 			particle[i].p[2] = 0.0;
 			//*/
 	
@@ -166,8 +166,8 @@ void initialize_bodies()
 			//*/
 		
 			// Predator Starting Velocities
-			 particle[i].v[0] = 600.0*cos(particle[i].p[0]); 
-			 particle[i].v[1] = 600.0*sin(particle[i].p[1]);
+			 particle[i].v[0] = 1.0;//600.0*cos(particle[i].p[0]); 
+			 particle[i].v[1] = 0.0;//600.0*sin(particle[i].p[1]);
 			 particle[i].v[2] = 0.0;
 		
 			// Predator forces:
@@ -218,9 +218,9 @@ int n_body()
 	// Reset Forces
 	for(i=0; i<NFISH; i++)
 	{
-		particle[i].f[0] = 0.0;
-		particle[i].f[1] = 0.0;
-		particle[i].f[2] = 0.0;
+		particle[i].f[0] = EPSILON;
+		particle[i].f[1] = EPSILON;
+		particle[i].f[2] = EPSILON;
 	}
 
 	// Calculate forces on fish
@@ -233,12 +233,9 @@ int n_body()
 			d[0] = particle[i].p[0] - particle[j].p[0];
 			d[1] = particle[i].p[1] - particle[j].p[1];
 			d[2] = 0.0;//particle[i].p[2] - particle[j].p[2];
-			/*
-			printf("The distance between %d and %d in the x direction is %lf\n 
-			The distance between %d and %d in the y direction is %lf\n 
-			The distance between %d and %d in the z direction is %lf\n", 
-			i, j, d[0], i, j, d[1], i, j, d[2]);
-			*/
+			
+			printf("The distance between %d and %d in the x direction is %lf\n. The distance between %d and %d in the y direction is %lf\n. The distance between %d and %d in the z direction is %lf\n", i, j, d[0], i, j, d[1], i, j, d[2]);
+			
 
 			r2 = d[0]*d[0] + d[1]*d[1] + d[2]*d[2] + EPSILON;
 			r = sqrt(r2) + EPSILON;
@@ -258,25 +255,6 @@ int n_body()
 			printf("The current force vector for particle %d is: (%lf, %lf, %lf)\n", i, particle[i].f[0], particle[i].f[1], particle[i].f[0]);
 		}
 
-		// Predator force
-		/*
-		for(j=NFISH+NFOOD; j<N; j++) //j is predator; i is fish
-		{
-			d[0] = particle[j].p[0] - particle[i].p[0];
-			d[1] = particle[j].p[1] - particle[i].p[1];
-			d[2] = 0.0; //particle[j].p[2] - particle[i].p[2];
-			
-			r2 = d[0]*d[0] + d[1]*d[1] + d[2]*d[2] + EPSILON;
-			r = sqrt(r2) + EPSILON;
-			r4 = r2*r2 + EPSILON;
-				if(r < SIGHT*10.0 && i != j)
-			{
-				particle[i].f[0] -= CPR*(d[0]/r4);
-				particle[i].f[1] -= CPR*(d[1]/r4);
-				particle[i].f[2] -= 0.0; //CPR*(d[2]/r4);
-			}
-		}
-		*/
 	}
 
 	// Update Velocities and Move Fish
@@ -289,14 +267,9 @@ int n_body()
 			particle_dist = BOUNDARY-particle[i].p[0];
 			if(particle_dist < BOUNDARY*0.25)
 			{
-				particle[i].f[0] -= ((BDIST-particle_dist)*SPEED/particle_dist);	
+				particle[i].f[0] -= ((BDIST-particle_dist)/particle_dist);	 //SPEED
 			}
 
-
-			if(particle[i].p[1] < (BOUNDARY-BDIST) && particle[i].p[1] > (BDIST-BOUNDARY))
-			{
-				particle[i].f[1] += SPEED*(sqrt(particle[i].v[0]*particle[i].v[0])/(particle[i].v[1]+EPSILON));
-			}
 		}
 
 		// Left wall
@@ -305,12 +278,7 @@ int n_body()
 			particle_dist = BOUNDARY+particle[i].p[0];
 			if(particle_dist < BOUNDARY*0.25)
 			{
-				particle[i].f[0] += ((BDIST-particle_dist)*SPEED/particle_dist);
-			}
-
-			if(particle[i].p[1] < (BOUNDARY-BDIST) && particle[i].p[1] > (BDIST-BOUNDARY))
-			{
-				particle[i].f[1] += SPEED*(sqrt(particle[i].v[0]*particle[i].v[0])/(particle[i].v[1]+EPSILON));
+				particle[i].f[0] += ((BDIST-particle_dist)/particle_dist);	 //SPEED
 			}
 		}
 
@@ -320,12 +288,7 @@ int n_body()
 			particle_dist = BOUNDARY-particle[i].p[1];
 			if(particle_dist < BOUNDARY*0.25)
 			{
-				particle[i].f[1] -= ((BDIST-particle_dist)*SPEED/particle_dist);
-			}
-
-			if(particle[i].p[0] < (BOUNDARY-BDIST) && particle[i].p[0] > (BDIST-BOUNDARY))
-			{
-				particle[i].f[0] += SPEED*(sqrt(particle[i].v[1]*particle[i].v[1])/(particle[i].v[0]+EPSILON));
+				particle[i].f[1] -= ((BDIST-particle_dist)/particle_dist);	 //SPEED
 			}
 		}
 
@@ -335,31 +298,29 @@ int n_body()
 			particle_dist = BOUNDARY+particle[i].p[1];
 			if(particle_dist < BOUNDARY*0.25)
 			{
-				particle[i].f[1] += ((BDIST-particle_dist)*SPEED/particle_dist);
-			}
-
-			if(particle[i].p[0] < (BOUNDARY-BDIST) && particle[i].p[0] > (BDIST-BOUNDARY))
-			{
-				particle[i].f[0] += SPEED*(sqrt(particle[i].v[1]*particle[i].v[1])/(particle[i].v[0]+EPSILON));
+				particle[i].f[1] += ((BDIST-particle_dist)/particle_dist);	 //SPEED
 			}		
 		}
 
 
 
 		// Normalize the forces
-		force_mag = sqrt(particle[i].f[0]*particle[i].f[0] + particle[i].f[1]*particle[i].f[1] + particle[i].f[2]*particle[i].f[2]); 	
-		particle[i].f[0] /= force_mag;
-		particle[i].f[1] /= force_mag;
-		particle[i].f[2] /= force_mag;
+		force_mag = sqrt(particle[i].f[0]*particle[i].f[0] + particle[i].f[1]*particle[i].f[1] + particle[i].f[2]*particle[i].f[2]); 
+		if(force_mag>1.0)
+		{
+			particle[i].f[0] /= force_mag;
+			particle[i].f[1] /= force_mag;
+			particle[i].f[2] /= force_mag;
+		}
 
 		///////////////////////////////////////////////////
 		//  Move the each fish towards the target -- Messed up new version
 		///////////////////////////////////////////////////
 		
-		/*
-		particle[i].v[0] = (9*particle[i].vn[0] + particle[i].f[0]*dt)/10;
-		particle[i].v[1] = (9*particle[i].vn[1] + particle[i].f[1]*dt)/10;
-		particle[i].v[2] = (9*particle[i].vn[2] + particle[i].f[2]*dt)/10;
+		//*
+		particle[i].v[0] = (particle[i].v[0] + particle[i].f[0]*dt)/2.0;
+		particle[i].v[1] = (particle[i].v[1] + particle[i].f[1]*dt)/2.0;
+		particle[i].v[2] = (particle[i].v[2] + particle[i].f[2]*dt)/2.0;
 		
 		particle[i].v[0] *= SPEED;
 		particle[i].v[1] *= SPEED;
@@ -374,7 +335,7 @@ int n_body()
 		//  Move the each fish towards the target -- Cleaned up original version
 		///////////////////////////////////////////////////
 
-		//*																	// vn is incredibly stupidly defined!!
+		/*																	// vn is incredibly stupidly defined!!
 		particle[i].vn[0] = (9*particle[i].vn[0] + particle[i].f[0]*dt)/10; // vn is a way small version of previous step's velocity!
 		particle[i].vn[1] = (9*particle[i].vn[1] + particle[i].f[1]*dt)/10;
 		particle[i].vn[2] = (9*particle[i].vn[2] + particle[i].f[2]*dt)/10;
@@ -390,9 +351,9 @@ int n_body()
 		//*/
 		
 		// Diagnostics
-		//*
+		//*/
 		//printf("The vn of particle %i is (%.4f, %.4f, %.4f)\n", 
-		//		i, particle[i].vn[0], particle[i].vn[1], particle[i].vn[2]);
+		//		i, particle[i].vn[0], particle[i].vn[1], particle[i].vn[2]);		
 		printf("The position of particle %i is (%.4f, %.4f, %.4f)\n", 
 				i, particle[i].p[0], particle[i].p[1], particle[i].p[2]);
 		printf("The velocity of particle %i is (%.4f, %.4f, %.4f)\n", 
