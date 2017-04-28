@@ -12,6 +12,7 @@
 \usepackage{multimedia} % For movies
 \usepackage{pgfplots} % For generating random numbers for tikz 
 \usepackage{pstricks-add}
+\usepackage{comment}
 
 \usetikzlibrary{calc}
 \usetikzlibrary{shapes.geometric}
@@ -89,6 +90,7 @@
 	\begin{itemize}
 		\item Circadian Rhythms
 	\end{itemize}
+	\vspace{100 pt}
 \end{frame}
 
 \begin{frame}
@@ -101,6 +103,7 @@
 	\begin{center}
 	\includegraphics[scale=1.15]{images/geese_flock.jpg}
 	\end{center}
+	\vspace{5 pt}
 \end{frame}
 
 \begin{frame}
@@ -122,11 +125,12 @@
 	\begin{itemize}
 		\item Round of Applause
 	\end{itemize}
+	\vspace{100 pt}
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Example - Human Grouping}
+	\frametitle{Example}
 \noindent Rules to Follow:
 \begin{itemize}
 	\item \textbf{Walk} slowly toward center of the group.
@@ -135,7 +139,8 @@
 \end{itemize}
 
 % The movie won't play in a normal .pdf viewer. Okular works.
-\movie[width=5cm,height=4cm, poster, showcontrols]{}{human_swarm.ogv}
+\centering
+\movie[width=5cm,height=4cm, poster, showcontrols]{}{human_swarm.ogv} 
 \end{frame}
 
 
@@ -154,15 +159,14 @@
 \begin{frame}
 	\frametitle{Why Do We Care?}
 	\begin{itemize}
-		\item Learning C/CUDA
-		\item Applying mathematical models to real life phenomenon
-		\item How will environmental factors affect the animal aggregate
-		\item How animal aggregates will affect the environment 
+		\item Learning C, CUDA, OpenGL, modeling
+		\item How will environmental factors affect the animal aggregate?
+		\item How will animal aggregates affect the environment?
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Flocking Model}
+	\frametitle{Schooling Model}
 	\begin{multicols}{2}
 	\onslide<1->{
 	Our model represents each fish adhering to the following three rules:}
@@ -255,7 +259,7 @@
 			\onslide<5->{
 			\filldraw[fill=Maroon!30, draw=Maroon] (0, 0) circle [radius=4.5cm];}
 			\onslide<4->{
-			\filldraw[fill=OliveGreen!30, draw=Olive Green] (0, 0) circle [radius=3cm];}
+			\filldraw[fill=OliveGreen!30, draw=OliveGreen] (0, 0) circle [radius=3cm];}
 			\onslide<3->{
 			\filldraw[fill=TarletonPurple!30, draw=TarletonPurple] (0, 0) circle [radius=1.5cm];}
 			\onslide<3->{
@@ -296,6 +300,8 @@
 	\end{itemize}
 \end{frame}
 
+
+\begin{comment}
 \begin{frame}
 	\frametitle{The Attraction and Repulsion Coefficients}
 	\begin{equation*}
@@ -303,7 +309,23 @@
 	\end{equation*}
 	\begin{figure}
 		\centering
+<<<<<<< HEAD
+%		\includegraphics[scale=0.5]{images/coefficient_plot.png}
+		\psset{xunit=0.5cm,yunit=0.5cm,algebraic=true,dimen=middle,dotstyle=o,dotsize=5pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+		\begin{pspicture*}(0.,-2.8631891087147996)(6.5648188315047395,4.8322794702689515)
+			\psaxes[labelFontSize=\scriptstyle,xAxis=true,yAxis=true,Dx=1.,Dy=1.,ticksize=-2pt 0,subticks=2]{->}(0,0)(0.,-2.8631891087147996)(6.5648188315047395,4.8322794702689515)
+			\onslide<2->{
+			  \psplot[linewidth=1.2pt,linecolor=ufsdxf,plotpoints=200]{6.56481883150474E-6}{6.5648188315047395}{-1.0/x^(4.0)+2.0/x^(2.0)}
+			}
+			\begin{scriptsize}
+				\onslide<2->{
+				  \rput[bl](-7.819787819980308,-0.14017714999747297){\ufsdxf{$f$}}
+				}
+			\end{scriptsize}
+		\end{pspicture*}
+=======
 		\includegraphics[scale=1]{images/coeff_plot2}
+<<<<<<< HEAD
 		\begin{tikzpicture}
 			\begin{axis}[
 				axis lines = left,
@@ -323,8 +345,31 @@
 			\addlegendentry{\frac{2}{x^{2}} - \frac{1}{x^4}}}
 			\end{axis}
 		\end{tikzpicture}
+=======
+%		\begin{tikzpicture}
+%			\begin{axis}[
+%				axis lines = left,
+%				xlabel = {Distance},
+%				ylabel = {Attraction},
+%				xmin = 0,
+%				xmax = 10,
+%				ymin = -10,
+%				ymax = 10
+%			]
+%			\addplot[
+%				domain=0.1:10,
+%				samples=100,
+%				color=TarletonPurple
+%			]
+%			{(2/(x^{2}) - (1/x^{4})}
+%			\addlegendentry{\frac{2}{x^{2}} - \frac{1}{x^4}}}
+%			\end{axis}
+%		\end{tikzpicture}
+>>>>>>> 8ebfde8f337e70cee5bc542ce49aad7a09dd5b3d
+>>>>>>> c38eeb5ab0bd8f7f9015db53a9c83f2d79ef2541
 	\end{figure}
 \end{frame}
+\end{comment}
 
 \begin{frame}
 	\frametitle{Directional Alignment of Fish $i$}
@@ -485,9 +530,15 @@
 \begin{frame}
 	\frametitle{THANK YOU} 
 	Thank you to Dr. Wyatt and the Particle Modelling Lab for their time and resources.
+	\vspace{20 pt}
 	\begin{center}
-		\Huge{QUESTIONS?}
+		{\Huge QUESTIONS?} \\
 	\end{center}
+	\vspace{20 pt}	
+	%\textbf{Contact:} \\
+	\texttt{mikaela.jordan@go.tarleton.edu} \\
+	\texttt{david.ebert@go.tarleton.edu} \\
+	\texttt{github.com/dpebert7/sync} \\
 \end{frame}
 
 \end{document}
