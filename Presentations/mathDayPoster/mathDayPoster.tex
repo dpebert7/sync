@@ -67,6 +67,8 @@
 \usetikzlibrary{arrows}
 \usepackage{pgfplots}
 \usepackage{pstricks-add}
+\usepackage[absolute, overlay]{textpos}
+\usepackage{booktabs}
 
 
 %%% Setting node styles for the fish in the schooling model %%%
@@ -98,11 +100,17 @@
 	}
 }
 
+%%% Making Reference Environment For Tarleton Picture %%%
+\newenvironment{reference}[2]{
+\begin{textblock*}{\textwidth}(#1,#2)              
+  \footnotesize\it\bgroup\color{red!50!black}}{\egroup\end{textblock*}}
+
+
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION 
 %----------------------------------------------------------------------------------------
 
-\title{SYNC or Swim: A Particle Model of the Interactions within Fish Schools} % Poster title
+\title{SYNC or Swim: A Particle Model of Fish Schools} % Poster title
 
 \author{David Ebert and Mikaela Jordan} % Author(s)
 
@@ -111,6 +119,13 @@
 %----------------------------------------------------------------------------------------
 
 \begin{document}
+
+\makeatletter
+\def\beamer@framenotesbegin{
+\begin{reference}{105cm}{0.5mm}
+\tikz\node{\includegraphics[scale=2.5]{tsumath_copy}};
+\end{reference} 
+}
 
 \addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
 \addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
