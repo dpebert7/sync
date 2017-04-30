@@ -1,0 +1,524 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Jacobs Landscape Poster
+% LaTeX Template
+% Version 1.0 (29/03/13)
+%
+% Created by:
+% Computational Physics and Biophysics Group, Jacobs University
+% https://teamwork.jacobs-university.de:8443/confluence/display/CoPandBiG/LaTeX+Poster
+% 
+% Further modified by:
+% Nathaniel Johnston (nathaniel@njohnston.ca)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[final, xcolor=dvipsnames]{beamer}
+
+\usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+
+\usetheme{confposter} % Use the confposter theme supplied with this template
+
+\definecolor{TarletonPurple}{RGB}{79, 45, 127}
+
+\setbeamercolor{block title}{fg=TarletonPurple,bg=white} % Colors of the block titles
+\setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
+\setbeamercolor{block alerted title}{fg=white,bg=TarletonPurple!70} % Colors of the highlighted block titles
+\setbeamercolor{block alerted body}{fg=black,bg=TarletonPurple!10} % Colors of the body of highlighted blocks
+% Many more colors are available for use in beamerthemeconfposter.sty
+
+%-----------------------------------------------------------
+% Define the column widths and overall poster size
+% To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
+% In this template, the separation width chosen is 0.024 of the paper width and a 4-column layout
+% onecolwid should therefore be (1-(# of columns+1)*sepwid)/# of columns e.g. (1-(4+1)*0.024)/4 = 0.22
+% Set twocolwid to be (2*onecolwid)+sepwid = 0.464
+% Set threecolwid to be (3*onecolwid)+2*sepwid = 0.708
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+\setlength{\paperwidth}{48in} % A0 width: 46.8in
+\setlength{\paperheight}{36in} % A0 height: 33.1in
+\setlength{\sepwid}{0.024\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.22\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
+\setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
+\setlength{\topmargin}{-0.5in} % Reduce the top margin size
+%-----------------------------------------------------------
+
+\usepackage{graphicx}  % Required for including images
+
+\usepackage{booktabs} % Top and bottom rules for tables
+
+\usepackage{tikz} % For the pretty pictures
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{pstricks-add}
+
+
+%%% Setting node styles for the fish in the schooling model %%%
+\tikzset{
+	focal/.style={
+		draw=Magenta,
+		shape=isosceles triangle,
+		fill=Magenta!30,
+		shape border uses incircle,
+		minimum height= 0.45cm, 
+		minimum width= 0.3cm,
+		shape border rotate=#1,
+		isosceles triangle stretches,
+		inner sep=0pt
+	},
+	focalfish/.style={focal=+90}
+}
+
+\tikzset{
+	fish/.style={
+		draw=MidnightBlue,
+		shape=isosceles triangle,
+		fill=MidnightBlue!50,
+		minimum height= 0.45cm, 
+		minimum width= 0.3cm,
+		shape border rotate=90,
+		isosceles triangle stretches,
+		inner sep=0pt
+	}
+}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+\title{SYNC or Swim: A Particle Model of the Interactions within Fish Schools} % Poster title
+
+\author{David Ebert and Mikaela Jordan} % Author(s)
+
+\institute{Tarleton State University Department of Mathematics} % Institution(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
+\addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
+
+\setlength{\belowcaptionskip}{2ex} % White space under figures
+\setlength\belowdisplayshortskip{2ex} % White space under equations
+
+\begin{frame}[t] % The whole poster is enclosed in one beamer frame
+
+\begin{columns}[t] % The whole poster consists of three major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The first column
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVES
+%----------------------------------------------------------------------------------------
+
+\begin{alertblock}{Current Parameters}
+The current parameters of the model are as follows:
+\begin{itemize}
+\item \textbf{Number of Fish:} \hfill 2048 
+\item \textbf{Weight of Alignment:} \hfill 
+\item \textbf{Weight of Attractive Forces:}
+\item \textbf{Attraction Coefficient:}
+\item \textbf{Repulsion Coefficient:}
+\item \textbf{Target Attraction Coefficient:}
+\item \textbf{Sight Radius:}
+\end{itemize}
+
+\end{alertblock}
+
+%----------------------------------------------------------------------------------------
+%	SCHOOLING MODEL
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Schooling Model}
+	Our model represents each fish adhering to the following three rules with respect to positioning relative to their peers in the school:
+	\begin{itemize}
+		\item \textcolor{OliveGreen}{\textbf{Alignment}} \\
+			Fish want to swim in the same direction as the other fish in their school.\\
+			\begin{figure}
+				\centering
+				\begin{tikzpicture}
+				%%% Alignment %%%
+				\draw[ultra thick, OliveGreen] (0, 0) rectangle (9, 6);
+				\draw[very thick, gray] (4.5, 3) circle [radius=2.9cm];
+				
+				\node[focalfish] (focal) at (4.5, 3) {};
+				\node[fish, rotate=15] (align1) at ($(focal) + (-0.9, 0.9)$) {};
+				\node[fish, rotate=25] (align2) at ($(focal) + (0.9, 1.2)$) {};
+				\node[fish, rotate=10] (align3) at ($(focal) + (1.5, 0.3)$) {};
+				\node[fish, rotate=30] (align4) at ($(focal) + (0.6, -1.05)$) {};
+				\node[fish, rotate=5] (align5) at ($(focal) + (-0.9, -1.2)$) {};
+				\node[fish, rotate=27] (align6) at ($(focal) + (-1.35, -0.3)$) {};
+				
+				\draw[Magenta] (focal.north) -- ($(focal.north) + (0, 0.45)$);
+				\draw[SeaGreen] (focal.north) -- ($(focal.north) + (-0.21, 0.42)$);
+				\end{tikzpicture}
+			\end{figure}
+		\item \textcolor{Maroon}{\textbf{Cohesion}} \\
+			Fish want to stay in the school. \\
+			\begin{figure}
+				\centering
+				\begin{tikzpicture}
+				%%% Cohesion %%%
+				\draw[ultra thick, Maroon] (0, 0) rectangle (9, 6);
+				\draw[very thick, gray] (4.5, 3) circle [radius=2.9cm];
+				
+				\node[focalfish](focal) at (4.5, 3) {};
+				\node[fish, rotate = 10] (coh1) at ($(focal) + (-0.6, 1.5)$) {};
+				\node[fish, rotate = -15] (coh2) at ($(focal) + (-2.25, 0.6)$) {};
+				\node[fish, rotate = 25] (coh3) at ($(focal) + (-1.8, -0.75)$) {};
+				\node[fish, rotate = -5] (coh4) at ($(focal) + (-0.6, -1.5)$) {};
+				\node[fish, rotate = 10] (coh5) at ($(focal) + (-3.0, -1.2)$) {};
+				\node[fish, rotate = 5] (coh6) at ($(focal) + (-3.15, 0.0)$) {};
+				\node[fish, rotate = -15] (coh7) at ($(focal) + (-2.85, -1.95)$) {};
+				
+				\draw[SeaGreen] (coh1.south west) -- (3.75, 3.1);
+				\draw[SeaGreen] (coh2.south west) -- (3.75, 3.1);
+				\draw[SeaGreen] (coh3.south west) -- (3.75, 3.1);
+				\draw[SeaGreen] (coh4.south west) -- (3.75, 3.1);
+				
+				\fill[SeaGreen] (3.75, 3.1) circle [radius = 2pt];
+				
+				\draw[Magenta, ->] (focal.west) -- (3.75, 3.1);
+				\end{tikzpicture}
+			\end{figure}
+		\item \textcolor{TarletonPurple}{\textbf{Separation}} \\
+			Fish don't want to collide with their neighbors. \\
+			\begin{figure}
+				\centering
+				\begin{tikzpicture}
+				%%% Separation %%%
+				\draw[ultra thick, TarletonPurple] (0, 0) rectangle (9, 6);
+				\draw[very thick, gray] (4.5, 3) circle [radius=2.9cm];
+				
+				\node[focalfish](focal) at (4.5, 3) {};
+				\node[fish, rotate = 15] (fish1) at ($(focal) + (-0.45, 0.3)$) {};
+				\node[fish, rotate = -15] (fish2) at ($(focal) + (0.45, 0.6)$) {};
+				\node[fish, rotate = -35] (fish3) at ($(focal) + (-0.6, -0.9)$) {};
+				\node[fish, rotate = 20] (fish4) at ($(focal) + (3, -2.55)$) {};
+				\node[fish, rotate = -25] (fish5) at ($(focal) + (-2.25, 2.4)$) {};
+				
+				\draw[thin, gray] (focal) -- (fish1);
+				\draw[thin, gray] (focal) -- (fish2);
+				\draw[thin, gray] (focal) -- (fish3);
+				
+				\draw[red, ->] (focal) -- ($(focal) + (0.6, -0.6)$);
+				\end{tikzpicture}
+			\end{figure}
+	\end{itemize}
+\end{block}
+
+%------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the first column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\twocolwid} % Begin a column which is two columns wide (column 2)
+
+\begin{columns}[t,totalwidth=\twocolwid] % Split up the two columns wide column
+
+\begin{column}{\onecolwid}\vspace{-.6in} % The first column within column 2 (column 2.1)
+
+%----------------------------------------------------------------------------------------
+%	MATERIALS
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Metric Distance Model}
+
+Uses zones around fish to determine attractive, repulsive, and alignment forces on each fish.  Although the figure below shows the zones with hard-defined boundaries, which does not happen in real life, but does illustrate the general idea of a metric distance model.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\filldraw[fill=Maroon!30, draw=Maroon] (0, 0) circle [radius = 6cm];
+		\filldraw[fill=OliveGreen!30, draw=OliveGreen] (0, 0) circle [radius = 4cm];
+		\filldraw[fill=TarletonPurple!30, draw=TarletonPurple] (0, 0) circle [radius = 2cm];
+		\fill[TarletonPurple] (0, 0) circle [radius = 0.25cm];
+		
+		\node at (0, 5) {\textbf{\scriptsize{Attraction}}};
+		\node at (0, 3) {\textbf{\scriptsize{Orientation}}};
+		\node at (0, 1) {\textbf{\scriptsize{Repulsion}}};
+	\end{tikzpicture}
+\end{figure}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.1
+
+\begin{column}{\onecolwid}\vspace{-.6in} % The second column within column 2 (column 2.2)
+
+%----------------------------------------------------------------------------------------
+%	METHODS
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Ideal Distance}
+
+Using the force equation below, there are attraction and repulsive coefficients that we use to create an ideal distance between the fish. 
+\begin{figure}
+	\centering
+	\includegraphics[scale=3]{coeff_plot2.eps}
+\end{figure}
+The ideal distance between fish occurs at \underline{~~~~~~~~~~~}, and the highest attraction is at \underline{~~~~~~~~~~~~}.
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.2
+
+\end{columns} % End of the split of column 2 - any content after this will now take up 2 columns width
+
+%----------------------------------------------------------------------------------------
+%	IMPORTANT RESULT
+%----------------------------------------------------------------------------------------
+
+\begin{alertblock}{Total Force on Each Fish from Neighboring Fish}
+
+\begin{equation*}
+	F_{i_{N}} = \sum\limits_{j=1}^{N} \bigg( W_{A} \big(C_{A} \frac{p_{j}- p_{i}}{d^{2}} - C_{R}\frac{p_{j} - p_{i}}{d^{4}} \big) + W_{D} \big(\frac{v_{j}}{||p_{i} - p_{j}||} \big) \bigg)
+\end{equation*}
+
+\end{alertblock} 
+
+%----------------------------------------------------------------------------------------
+
+\begin{columns}[t,totalwidth=\twocolwid] % Split up the two columns wide column again
+
+\begin{column}{\onecolwid} % The first column within column 2 (column 2.1)
+
+%----------------------------------------------------------------------------------------
+%	MATHEMATICAL SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Directional Alignment}
+
+\begin{figure}
+		\centering
+		\begin{tikzpicture}[focalfish/.style={circle, minimum size=1mm, fill=TarletonPurple}, fish/.style={circle, minimum size=1mm, fill=Magenta}, outfish/.style={circle, minimum size=1mm, fill=SkyBlue}, scale=0.75]
+			\draw[dashed, gray] (0, 0) circle [radius=8cm];
+			
+			\node[focalfish] (focal) at (0, 0) {};
+			\draw[->] (focal.north) -- ($(focal.north) + (-0.4, 1.6)$);
+			
+			%%% Radius Vector %%%
+			\draw[gray, ->] (focal.east) -- (0:8cm);
+			\node at (6.5, 0.15) {\tiny{\textcolor{gray}{Sight Range}}};
+			
+			
+			\node[fish] (infish1) at (2.0, 3.0) {};
+			\node[fish] (infish2) at (4.8, 5.6) {};
+			\node[fish] (infish3) at (-4.8, 6.0) {};
+			\node[fish] (infish4) at (-4.6, 2.4) {};
+			\node[fish] (infish5) at (-4, -3.0) {};
+			\node[fish] (infish6) at (-2.0, -6.8) {};
+			\node[fish] (infish7) at (0.4, -5.) {};
+			\node[fish] (infish8) at (1.8, -3.0) {};
+			\node[outfish] (fish9) at (-6.0, 8) {};
+			\node[outfish] (fish10) at (-7.0, -8.48) {};
+			\node[outfish] (fish11) at (8, 6) {};
+			\node[outfish] (fish12) at (8.48, -3.0) {};
+			
+			\draw[->] (infish1.north) -- ($(infish1.north) + (1.0, 2.0)$);
+			\draw[->] (infish2.north) -- ($(infish2.north) + (-0.5, 2.0)$);
+			\draw[->] (infish3.north) -- ($(infish3.north) + (2.0, 2.0)$);
+			\draw[->] (infish4.north) -- ($(infish4.north) + (-1.0, 2.0)$);
+			\draw[->] (infish5.north) -- ($(infish5.north) + (0.4, 2.0)$);
+			\draw[->] (infish6.north) -- ($(infish6.north) + (-0.4, 2.0)$);
+			\draw[->] (infish7.north) -- ($(infish7.north) + (-1.2, 2.0)$);
+			\draw[->] (infish8.north) -- ($(infish8.north) + (1.6, 2.0)$);
+			
+			\draw[dotted,] ($(focal.north) + (-0.4, 1.6)$) -- (infish4.north);
+			\draw[->] ($(focal.north) +(-0.4, 1.6)$) -- ($(focal.north) +(-0.4, 1.6) + (-1.0, 2.0)$);
+			\draw[dotted] ($(focal.north) +(-0.4, 1.6) + (-1.0, 2.0)$) -- ($(infish4.north) + (-1.0, 2.0)$);
+			
+			\draw[dotted] ($(focal.north) +(-1.4, 3.6)$) -- (infish3.north);
+			\draw[->] ($(focal.north) + (-1.4, 3.6)$) -- ($(focal.north) + (-1.4, 3.6) + (2.0, 2.0)$);
+			\draw[dotted] ($(focal.north) + (0.6, 5.6)$) -- ($(infish3.north) + (2.0, 2.0)$);
+			
+			\draw[->] ($(focal.north) + (0.6, 5.6)$) --  ($(focal.north) + (1.6, 7.6)$);
+			
+			\draw[->] ($(focal.north) + (1.6, 7.6)$) -- ($(focal.north) + (1.6, 7.6) + (-0.5, 2.0)$);
+			
+			\draw[->] ($(focal.north) + (1.1, 9.6)$) -- ($(focal.north) + (1.1, 9.6) + (0.4, 2.0)$);
+			
+			\draw[->] ($(focal.north) + (1.5, 11.6)$) -- ($(focal.north) + (1.5, 11.6) + (-0.4, 2.0)$);
+			
+			\draw[->] ($(focal.north) + (1.1, 13.6)$) -- ($(focal.north) +  (1.1, 13.6) + (-1.2, 2.0)$);
+			
+			\draw[->] ($(focal.north) + (-0.01, 15.6)$) -- ($(focal.north) + (-0.01, 15.6) + (1.6, 2.0)$);
+			\draw[->, thick, dashed] (focal.north) -- ($(focal.north) + (1.5, 17.6)$);
+		\end{tikzpicture}
+	\end{figure}
+The direction of the focal fish is a weighted average of the direction of all of the fish within its sight range.  The weight of the direction of each fish is determined by the distance to the focal fish.
+
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.1
+
+\begin{column}{\onecolwid} % The second column within column 2 (column 2.2)
+
+%----------------------------------------------------------------------------------------
+%	RESULTS
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Calculating Force, Velocity and Position}
+
+At every time step, the following calculations occur for each particle (let's call it particle $i$):
+\begin{enumerate}
+	\item Calculate $|| p_{i} - p_{j}||$ (distance between particle $i$ and every other particle $j$).
+	\item If $||p_{i} - p_{j}|| <$ our pre-determined sight radius, then use the total force on each fish from neighbors equation above to determine the force between particle $i$ and particle $j$, and sum forces over all particles within the sight ardius of particle $i$.
+	\item Use $F_{i_{N}}$ calculated above to update particle $i$'s velocity as follows:
+		\begin{equation*}
+			v_{i} = v_{i} + F_{i_{N}}\cdot dt
+		\end{equation*}
+	\item And finally update particle $i$'s position using:
+		\begin{equation*}
+			p_{i} = p_{i} + v_{i} \cdot dt
+		\end{equation*}
+\end{enumerate}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of column 2.2
+
+\end{columns} % End of the split of column 2
+
+\end{column} % End of the second column
+
+\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\onecolwid} % The third column
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSION
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Motivation}
+
+Nunc tempus venenatis facilisis. \textbf{Curabitur suscipit} consequat eros non porttitor. Sed a massa dolor, id ornare enim. Fusce quis massa dictum tortor \textbf{tincidunt mattis}. Donec quam est, lobortis quis pretium at, laoreet scelerisque lacus. Nam quis odio enim, in molestie libero. Vivamus cursus mi at \textit{nulla elementum sollicitudin}.
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	ADDITIONAL INFORMATION
+%----------------------------------------------------------------------------------------
+
+%\begin{block}{Additional Information}
+%
+%Maecenas ultricies feugiat velit non mattis. Fusce tempus arcu id ligula varius dictum. 
+%\begin{itemize}
+%\item Curabitur pellentesque dignissim
+%\item Eu facilisis est tempus quis
+%\item Duis porta consequat lorem
+%\end{itemize}
+%
+%\end{block}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\begin{block}{References}
+
+%\nocite{*} % Insert publications even if they are not cited in the poster
+%\small{\bibliographystyle{unsrt}
+%\bibliography{sample}\vspace{0.75in}}
+\footnotesize{
+Barbaro, Alethea, Bjorn Birnir, and Kirk Taylor. \textit{Simulating the}\\
+	\hspace{0.5cm}\textit{Collective Behavior of Schooling Fish With a Discrete Stochastic} \\
+	\hspace{0.5cm} \textit{Model}. University of Iceland. 2006. Web. \\
+	
+	\noindent Bernoff, Andrew J. ``Synchronization and Swarming: Clocks and Flocks.'' \\
+	\hspace{0.5cm} Harvey Mudd College. \\
+	
+	\noindent Morale, Daniela, Vincenzo Capasso, and Karl Oelschlager.``An Interacting \\
+	\hspace{0.5cm} Particle System Modelling Aggregation Behavior: From Individuals to\\
+	\hspace{0.5cm} Populations''. \textit{Journal of Mathematical Biology}. 2004. Web.
+	
+	\noindent Parrish, Julia K., Steven V. Viscido, and Daniel Grunbaum. ``Self-\\
+	\hspace{0.5cm} Organized Fish Schools: An Examination of Emergent Properties''. \\  
+	\hspace{0.5cm} \textit{The Biological Bulletin} 202. 2002:296-305. Web. \\
+	
+	\noindent Schellinck, Jen, and Tony White. ``A Review of Attraction and Repulsion\\
+	\hspace{0.5cm} Models of Aggregation: Methods, Findings, and a Discussion of Model \\
+	\hspace{0.5cm} Validation''. \textit{Ecological Modelling} 222. 2011: 1897-1911. Web.}
+	
+	\noindent White, Jonathan.  ``Dynamical and Computational Structures Under the\\
+	\hspace{0.5cm} Sea.'' University of Manchester. 2016. Web.
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\setbeamercolor{block title}{fg=red,bg=white} % Change the block title color
+
+\begin{block}{Acknowledgements}
+
+\small{\rmfamily{A big thank you to Dr. Wyatt, the particle modeling lab and our classmates for all of the time, ideas, and resources that were provided to us throughout this semester!}} \\
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\setbeamercolor{block alerted title}{fg=black,bg=TarletonPurple!90} % Change the alert block title colors
+\setbeamercolor{block alerted body}{fg=black,bg=TarletonPurple!30} % Change the alert block body colors
+
+\begin{alertblock}{Contact Information}
+
+\begin{itemize}
+\item \textbf{GitHub}: \href{https://www.github.com/dpebert7/sync}{https://www.github.com/dpebert7/sync}
+\item \textbf{Email} (David): \href{mailto:dpebert7@gmail.com}{dpebert7@gmail.com}
+\item \textbf{Email} (Mikaela): \href{mailto:mikaela.jordan15@gmail.com}{mikaela.jordan15@gmail.com}
+\end{itemize}
+
+\end{alertblock}
+
+\begin{center}
+\begin{tabular}{ccc}
+%\includegraphics[width=0.4\linewidth]{logo.png} & \hfill & \includegraphics[width=0.4\linewidth]{logo.png}
+\end{tabular}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the third column
+
+\end{columns} % End of all the columns in the poster
+
+\end{frame} % End of the enclosing frame
+
+\end{document}
