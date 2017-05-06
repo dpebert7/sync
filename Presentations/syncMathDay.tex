@@ -14,6 +14,7 @@
 \usepackage{pstricks-add}
 \usepackage{comment}
 \usepackage{multimedia}
+\usepackage{hyperref} % This is a necessary companion to the multimedia package
 
 \usetikzlibrary{calc}
 \usetikzlibrary{shapes.geometric}
@@ -86,7 +87,10 @@
 
 \begin{frame}
 	\frametitle{Motivation}
-%	\movie{}{images/fishSwarmYT.mp4}
+	\centering
+	\movie[width=10.0cm,height=7.0cm, poster, showcontrols, autostart]{}{fishSwarmYT.ogv}
+	%\hyperlinkmovie[]{fishlabel}{fishSwarmYT.ogv}
+	%\movie[width=7.0cm,height=7.0cm, poster, showcontrols]{}{2D_predator.ogv}
 \end{frame}
 
 \begin{frame}
@@ -334,8 +338,16 @@
 
 \begin{frame}
 	\frametitle{Simulations}
-%	\movie{}{images/2048fish-quicktime.mov}
+	\centering
+	\movie[width=7.0cm,height=7.0cm, poster,autostart, showcontrols]{}{2048fish-quicktime.mov}
 \end{frame}
+
+\begin{frame}
+	\frametitle{Simulations}
+	\centering
+	\movie[width=7.0cm,height=7.0cm, poster, showcontrols, autostart]{}{fish_food.ogv}
+\end{frame}
+
 
 
 \end{document}
