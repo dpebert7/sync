@@ -12,4 +12,6 @@ Animal aggregates are groupings of coupled animals that behave in a synchronized
 
  - Best presentation: Tarleton State University's Math day. May 5, 2017
  
+ ## Poster
+ 
  ![sync_image](https://github.com/dpebert7/sync/blob/master/poster.png)
