@@ -1,4 +1,4 @@
-![sync_image](https://github.com/dpebert7/sync/blob/master/02-27/screenshot.png)
+![sync_image](https://github.com/dpebert7/sync/blob/master/poster.png)
 
 ## sync
 
