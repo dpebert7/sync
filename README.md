@@ -1,5 +1,3 @@
-![sync_image](https://github.com/dpebert7/sync/blob/master/poster.png)
-
 ## sync
 
 N-body simulations of fish schooling. Created using C and CUDA for Tarleton State University's math modeling calss Spring 2017.
@@ -13,3 +11,5 @@ Animal aggregates are groupings of coupled animals that behave in a synchronized
  - Texas MAA Section Meeting Award: Best in room. Texas A&M Commerce. March 31, 2017
 
  - Best presentation: Tarleton State University's Math day. May 5, 2017
+ 
+ ![sync_image](https://github.com/dpebert7/sync/blob/master/poster.png)
